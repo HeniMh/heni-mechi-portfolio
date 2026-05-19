@@ -125,7 +125,7 @@ export function Contact() {
           </div>
         </div>
 
-        <form onSubmit={onSubmit} noValidate className="grid gap-4 p-6 md:p-8">
+        <form onSubmit={onSubmit} noValidate className="grid gap-4 p-6 md:p-8" aria-label="Contact form">
           <label className="grid gap-2 text-sm font-black text-slate-800 dark:text-white">
             Name
             <input
@@ -204,6 +204,8 @@ export function Contact() {
           </button>
 
           <p
+            role="status"
+            aria-live="polite"
             className={`text-sm font-bold ${
               status.type === 'success'
                 ? 'text-emerald-600'

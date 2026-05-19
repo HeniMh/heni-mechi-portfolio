@@ -15,7 +15,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <main className="overflow-hidden">
+      <main id="main-content" className="overflow-hidden" tabIndex={-1}>
         <Hero />
         <Services />
         <Projects />

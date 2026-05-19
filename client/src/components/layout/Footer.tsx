@@ -3,7 +3,7 @@ import { Logo } from '@/components/ui/Logo';
 
 export function Footer() {
   return (
-    <footer className="mx-auto flex w-[min(1120px,calc(100%-32px))] flex-col items-center justify-between gap-4 border-t border-slate-200 py-8 text-center dark:border-white/10 md:flex-row md:text-left">
+    <footer className="mx-auto flex w-[min(1120px,calc(100%-32px))] flex-col items-center justify-between gap-4 border-t border-slate-200 py-8 text-center dark:border-white/10 md:flex-row md:text-left" role="contentinfo">
       <a href="#home" className="flex items-center gap-3">
         <Logo className="h-10 w-10 rounded-xl" />
         <span>

@@ -44,7 +44,15 @@ export function Projects() {
         <div data-reveal className="mt-12 overflow-hidden rounded-[2.2rem] border border-slate-200 bg-white p-4 shadow-soft dark:border-white/10 dark:bg-white/[.04] md:p-6">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
             <div className="relative overflow-hidden rounded-[1.8rem] border border-slate-200 bg-slate-100 dark:border-white/10 dark:bg-slate-900">
-              <img key={project.image} src={project.image} alt={project.title} className="h-[320px] w-full animate-[fadeZoom_.7s_ease_both] object-cover md:h-[450px]" />
+              <img
+                key={project.image}
+                src={project.image}
+                alt={`${project.title} — ${project.role} front-end project`}
+                width={800}
+                height={450}
+                loading="lazy"
+                className="h-[320px] w-full animate-[fadeZoom_.7s_ease_both] object-cover md:h-[450px]"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent dark:from-slate-950/60" />
             </div>
             <div className="space-y-6 p-2 md:p-4">

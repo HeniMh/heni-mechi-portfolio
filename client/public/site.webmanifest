@@ -1,0 +1,18 @@
+{
+  "name": "Heni Mechi — React Front-End Developer",
+  "short_name": "Heni Mechi",
+  "description": "Senior React & Next.js front-end developer. Freelance and open to work.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

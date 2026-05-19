@@ -9,6 +9,28 @@
     scroll-behavior: smooth;
   }
 
+  .skip-link {
+    @apply fixed left-4 top-4 z-[200] -translate-y-24 rounded-full bg-blue-600 px-4 py-2 text-sm font-bold text-white shadow-lg transition focus:translate-y-0;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-600;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
     @apply bg-white font-sans text-slate-950 antialiased transition-colors dark:bg-slate-950 dark:text-white;
   }

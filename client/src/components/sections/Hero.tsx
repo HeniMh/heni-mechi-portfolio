@@ -45,7 +45,14 @@ export function Hero() {
           <div className="absolute left-1/2 top-10 -z-10 h-64 w-64 -translate-x-1/2 rounded-full bg-blue-300/20 blur-3xl dark:bg-blue-500/10" />
           <p className="mb-4 text-center text-xs font-black uppercase tracking-[.18em] text-slate-500 dark:text-slate-400">5+ years experience</p>
           <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white/80 p-3 shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/[.06]">
-            <img src="/assets/profile.png" alt="Heni Mechi" className="h-[340px] w-full rounded-[1.55rem] object-cover object-center sm:h-[410px]" />
+            <img
+              src="/assets/profile.png"
+              alt="Portrait of Heni Mechi, senior React front-end developer"
+              width={430}
+              height={410}
+              fetchPriority="high"
+              className="h-[340px] w-full rounded-[1.55rem] object-cover object-center sm:h-[410px]"
+            />
             <div className="absolute left-5 bottom-7 max-w-[220px] rounded-3xl border border-slate-200/80 bg-white/95 px-4 py-3 shadow-soft backdrop-blur dark:border-white/10 dark:bg-slate-950/90">
               <div className="flex items-center gap-3">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-blue-600 text-white"><Icon name="rocket" className="h-4 w-4" /></span>
