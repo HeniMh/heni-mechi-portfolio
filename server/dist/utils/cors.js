@@ -1,5 +1,11 @@
 import { env } from './env.js';
 const RENDER_ORIGIN = 'https://heni-mechi-portfolio.onrender.com';
+const SITE_ORIGINS = [
+    'https://henimechi.com',
+    'https://www.henimechi.com',
+    'http://henimechi.com',
+    'http://www.henimechi.com'
+];
 /** protocol + host only (ignores trailing slashes and paths) */
 export function normalizeOrigin(value) {
     try {
@@ -10,19 +16,34 @@ export function normalizeOrigin(value) {
         return value.trim().replace(/\/+$/, '');
     }
 }
+function addOrigin(origins, value) {
+    if (!value?.trim())
+        return;
+    const normalized = normalizeOrigin(value);
+    origins.add(normalized);
+    try {
+        const { protocol, hostname } = new URL(normalized);
+        if (hostname.startsWith('www.')) {
+            origins.add(`${protocol}//${hostname.slice(4)}`);
+        }
+        else {
+            origins.add(`${protocol}//www.${hostname}`);
+        }
+    }
+    catch {
+        /* ignore */
+    }
+}
 function buildAllowedOrigins() {
     const origins = new Set();
-    const add = (value) => {
-        if (!value?.trim())
-            return;
-        origins.add(normalizeOrigin(value));
-    };
-    add(env.clientUrl);
-    add(RENDER_ORIGIN);
-    add('http://localhost:5173');
-    add('http://127.0.0.1:5173');
+    addOrigin(origins, env.clientUrl);
+    addOrigin(origins, RENDER_ORIGIN);
+    for (const site of SITE_ORIGINS)
+        origins.add(site);
+    origins.add('http://localhost:5173');
+    origins.add('http://127.0.0.1:5173');
     for (const part of (process.env.ALLOWED_ORIGINS || '').split(',')) {
-        add(part);
+        addOrigin(origins, part);
     }
     return origins;
 }
@@ -38,6 +59,9 @@ function isPrivateNetworkHost(hostname) {
 function isVercelHost(hostname) {
     return hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
 }
+function isHenimechiHost(hostname) {
+    return hostname === 'henimechi.com' || hostname === 'www.henimechi.com';
+}
 export function isAllowedOrigin(origin) {
     if (!origin)
         return true;
@@ -45,7 +69,7 @@ export function isAllowedOrigin(origin) {
         return true;
     try {
         const { hostname } = new URL(origin);
-        if (isVercelHost(hostname))
+        if (isHenimechiHost(hostname) || isVercelHost(hostname))
             return true;
     }
     catch {
