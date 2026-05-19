@@ -1,0 +1,126 @@
+import {
+  Code2,
+  Rocket,
+  Briefcase,
+  Mail,
+  Phone,
+  Menu,
+  X,
+  Sun,
+  Moon,
+  ArrowRight,
+  Check,
+  Monitor,
+  Gauge,
+  Layers,
+  LifeBuoy,
+  ClipboardCheck,
+  PenLine,
+  Atom,
+  LayoutGrid,
+  FileCode2,
+  Braces,
+  Share2,
+  Database,
+  Wind,
+  Palette,
+  FileCode,
+  Paintbrush,
+  Cpu,
+  Server,
+  Droplets,
+  Leaf,
+  Building2,
+  GitBranch,
+  Container,
+  Package,
+  LayoutList,
+  MousePointer2,
+  Sparkles,
+  createLucideIcon,
+  type LucideIcon,
+} from 'lucide-react';
+
+/** Lucide removed brand icons; built with lucide-react's createLucideIcon (stroke style). */
+const Linkedin = createLucideIcon('Linkedin', [
+  ['path', { d: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-12h4v2', key: 'body' }],
+  ['rect', { width: '4', height: '12', x: '2', y: '9', key: 'pillar' }],
+  ['circle', { cx: '4', cy: '4', r: '2', key: 'head' }]
+]);
+
+export type IconName =
+  | 'code' | 'rocket' | 'briefcase' | 'mail' | 'phone' | 'linkedin' | 'menu' | 'x' | 'sun' | 'moon' | 'arrow' | 'check'
+  | 'monitor' | 'speed' | 'layers' | 'support' | 'audit' | 'design' | 'react' | 'next' | 'typescript'
+  | 'javascript' | 'redux' | 'query' | 'tailwind' | 'sass' | 'html' | 'css' | 'node' | 'express'
+  | 'drupal' | 'twig' | 'hybris' | 'git' | 'docker' | 'webpack' | 'jira' | 'cursor' | 'ai';
+
+const icons: Record<IconName, LucideIcon> = {
+  code: Code2,
+  rocket: Rocket,
+  briefcase: Briefcase,
+  mail: Mail,
+  phone: Phone,
+  linkedin: Linkedin,
+  menu: Menu,
+  x: X,
+  sun: Sun,
+  moon: Moon,
+  arrow: ArrowRight,
+  check: Check,
+  monitor: Monitor,
+  speed: Gauge,
+  layers: Layers,
+  support: LifeBuoy,
+  audit: ClipboardCheck,
+  design: PenLine,
+  react: Atom,
+  next: LayoutGrid,
+  typescript: FileCode2,
+  javascript: Braces,
+  redux: Share2,
+  query: Database,
+  tailwind: Wind,
+  sass: Palette,
+  html: FileCode,
+  css: Paintbrush,
+  node: Cpu,
+  express: Server,
+  drupal: Droplets,
+  twig: Leaf,
+  hybris: Building2,
+  git: GitBranch,
+  docker: Container,
+  webpack: Package,
+  jira: LayoutList,
+  cursor: MousePointer2,
+  ai: Sparkles,
+};
+
+export const skillIconNames: Record<string, IconName> = {
+  React: 'react',
+  'Next.js': 'next',
+  TypeScript: 'typescript',
+  JavaScript: 'javascript',
+  'Redux Toolkit': 'redux',
+  'React Query': 'query',
+  'Tailwind CSS': 'tailwind',
+  Sass: 'sass',
+  HTML5: 'html',
+  CSS3: 'css',
+  'Node.js': 'node',
+  Express: 'express',
+  Drupal: 'drupal',
+  Twig: 'twig',
+  Hybris: 'hybris',
+  Git: 'git',
+  Docker: 'docker',
+  Webpack: 'webpack',
+  Jira: 'jira',
+  Cursor: 'cursor',
+  'Claude AI': 'ai',
+};
+
+export function Icon({ name, className = '' }: { name: IconName; className?: string }) {
+  const LucideIconComponent = icons[name];
+  return <LucideIconComponent className={className} strokeWidth={1.9} aria-hidden="true" />;
+}

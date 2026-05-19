@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="HM logo">
+  <defs>
+    <linearGradient id="g" x1="16" y1="12" x2="112" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#89FFD3"/>
+      <stop offset=".48" stop-color="#84F1FF"/>
+      <stop offset="1" stop-color="#7FB7FF"/>
+    </linearGradient>
+    <filter id="s" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#84F1FF" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <rect x="10" y="10" width="108" height="108" rx="32" fill="#071017" stroke="url(#g)" stroke-width="5" filter="url(#s)"/>
+  <path d="M34 86V42h11v17h20V42h11v44H65V69H45v17H34Z" fill="#F4F8FB"/>
+  <path d="M79 86V42h10l14 20 14-20h10v44h-11V62l-11 16h-5L90 62v24H79Z" fill="url(#g)" transform="translate(-4 0) scale(.9 1)"/>
+</svg>
