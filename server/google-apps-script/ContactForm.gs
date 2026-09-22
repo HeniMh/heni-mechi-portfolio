@@ -20,11 +20,15 @@ function parsePayload(e) {
     var pairs = e.postData.contents.split('&');
     for (var i = 0; i < pairs.length; i++) {
       var part = pairs[i].split('=');
-      out[decodeURIComponent(part[0])] = decodeURIComponent(part[1] || '');
+      out[decodeFormComponent(part[0])] = decodeFormComponent(part[1] || '');
     }
     return out;
   }
   return e.parameter || {};
+}
+
+function decodeFormComponent(value) {
+  return decodeURIComponent(String(value).replace(/\+/g, ' '));
 }
 
 function readFields(data) {
