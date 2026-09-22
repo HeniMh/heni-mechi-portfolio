@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="HM logo">
+  <rect x="5" y="5" width="118" height="118" rx="31" fill="#05070B"/>
+  <rect x="7" y="7" width="114" height="114" rx="29" fill="none" stroke="#FFFFFF" stroke-opacity="0.13" stroke-width="2"/>
+  <path d="M29 86V42h11v16h18V42h11v44H58V69H40v17H29Z" fill="#D9FF63"/>
+  <path d="M74 86V42h10l9 14 9-14h10v44h-10V59l-7 12h-4l-7-12v27H74Z" fill="#D9FF63"/>
+</svg>

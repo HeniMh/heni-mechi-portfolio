@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-[#f5f2ea] font-sans text-[#111318] antialiased transition-colors dark:bg-[#0a0b0d] dark:text-white; font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11'; text-rendering: optimizeLegibility; }
+  * { box-sizing: border-box; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  a, button, [role='button'], summary, label, select { cursor: pointer; }
+  input, textarea { cursor: text; }
+  button:disabled { cursor: not-allowed; }
+  ::selection { background:#d9ff63; color:#111318; }
+  :focus-visible { outline: 2px solid #111318; outline-offset: 3px; }
+  .dark :focus-visible { outline-color:#d9ff63; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .section-kicker { @apply text-[10px] font-extrabold uppercase tracking-[.18em] text-black/40 dark:text-white/40; }
+  .section-title { @apply max-w-2xl font-display text-[clamp(2.35rem,4.8vw,4.5rem)] font-extrabold leading-[.98] tracking-[-.045em] text-[#111318] dark:text-white; text-wrap: balance; }
+}
+
+@layer utilities {
+  .ai-grid {
+    background-image: linear-gradient(rgba(17,19,24,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(17,19,24,.055) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 100%);
+  }
+  .dark .ai-grid { background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); }
+  .text-outline { color: transparent; -webkit-text-stroke: 1.5px rgba(17,19,24,.72); }
+  .dark .text-outline { -webkit-text-stroke-color: rgba(255,255,255,.72); }
+  [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); }
+  [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { [data-reveal] { opacity:1; transform:none; } }
+}
+
+@keyframes fadeZoom { from { opacity:0; transform:scale(1.025); } to { opacity:1; transform:scale(1); } }

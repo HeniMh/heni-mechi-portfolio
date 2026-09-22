@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# Heni Mechi — Fullstack Tailwind Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React + TypeScript + Vite frontend, Tailwind CSS styling, SCSS globals, and Node.js/Express contact API.
 
-## Available Scripts
+## Run Frontend
 
-In the project directory, you can run:
+```bash
+cd client
+npm install
+npm run dev
+```
 
-### `npm start`
+Open http://localhost:5173
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Run Backend
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Open a second terminal:
 
-### `npm test`
+```bash
+cd server
+npm install
+copy .env.example .env
+npm run dev
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+API: http://localhost:5001/api/health
 
-### `npm run build`
+## Receive contact form messages in Gmail
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The contact form needs SMTP credentials. Gmail blocks normal passwords, so create a Gmail **App Password**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In `server/.env`:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```env
+PORT=5001
+CLIENT_URL=http://localhost:5173
+CONTACT_TO=henimechi2026@gmail.com
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-gmail@gmail.com
+SMTP_PASS=your-16-character-app-password
+SMTP_FROM="Heni Portfolio <your-gmail@gmail.com>"
+```
 
-### `npm run eject`
+Restart the server after editing `.env`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Without SMTP, the backend still saves messages in `server/data/messages.json`, but it cannot deliver them to your email inbox.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Build Frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+cd client
+npm run build
+```
