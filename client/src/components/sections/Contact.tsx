@@ -24,7 +24,12 @@ export function Contact() {
       if (event.key === 'Escape') setOpen(false);
     }
     document.addEventListener('keydown', closeOnEscape);
-    return () => document.removeEventListener('keydown', closeOnEscape);
+
+    const openTimer = window.setTimeout(() => setOpen(true), 10_000);
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape);
+      window.clearTimeout(openTimer);
+    };
   }, []);
 
   function validateField(name: ContactField, form: HTMLFormElement) {
