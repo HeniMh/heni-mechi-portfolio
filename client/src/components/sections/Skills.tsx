@@ -13,12 +13,12 @@ const groups = [
 export function Skills() {
   return (
     <section id="stack" className="mx-auto w-[min(1180px,calc(100%-32px))] py-28">
-      <div data-reveal className="grid gap-6 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
-        <div>
+      <div data-reveal className="w-full text-center">
+        <div className="mx-auto w-full">
           <span className="section-kicker">03 / Stack</span>
-          <h2 className="section-title mt-5">Front-end first, with strong supporting technical breadth.</h2>
+          <h2 className="section-title mx-auto mt-5">Front-end first, with strong supporting technical breadth.</h2>
         </div>
-        <p className="max-w-2xl text-base font-medium leading-8 text-black/55 dark:text-white/55 lg:justify-self-end">The core focus stays on front-end excellence — React, Next.js, TypeScript, UI engineering, performance and accessibility — with Node.js, NestJS, CRM automation, testing and databases as complementary strengths.</p>
+        <p className="mx-auto mt-5 w-full max-w-4xl text-base font-medium leading-8 text-black/55 dark:text-white/55">The core focus stays on front-end excellence — React, Next.js, TypeScript, UI engineering, performance and accessibility — with Node.js, NestJS, CRM automation, testing and databases as complementary strengths.</p>
       </div>
 
       <div className="mt-14 grid gap-3 lg:grid-cols-2">

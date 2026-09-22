@@ -23,7 +23,7 @@
 
 @layer components {
   .section-kicker { @apply text-[10px] font-extrabold uppercase tracking-[.18em] text-black/40 dark:text-white/40; }
-  .section-title { @apply max-w-2xl font-display text-[clamp(2.35rem,4.8vw,4.5rem)] font-extrabold leading-[.98] tracking-[-.045em] text-[#111318] dark:text-white; text-wrap: balance; }
+  .section-title { @apply max-w-3xl font-display text-[clamp(2rem,3.6vw,3.5rem)] font-extrabold leading-[1.02] tracking-[-.035em] text-[#111318] dark:text-white; text-wrap: balance; }
 }
 
 @layer utilities {

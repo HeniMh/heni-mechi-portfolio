@@ -6,12 +6,12 @@ const icons: IconName[] = ['code','layers','ai','rocket','audit','speed'];
 export function Services() {
   return (
     <section id="expertise" className="mx-auto w-[min(1180px,calc(100%-32px))] py-28">
-      <div data-reveal className="grid gap-6 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
-        <div>
+      <div data-reveal className="w-full text-center">
+        <div className="mx-auto w-full">
           <span className="section-kicker">01 / Expertise</span>
-          <h2 className="section-title mt-5">From interface to infrastructure.</h2>
+          <h2 className="section-title mx-auto mt-5">From interface to infrastructure.</h2>
         </div>
-        <p className="max-w-2xl text-base font-medium leading-8 text-black/55 dark:text-white/55 lg:justify-self-end">I work across the product stack: high-quality front-end, backend services, AI-assisted engineering, automation, testing and data. The goal is not more technology — it is a cleaner, faster and more reliable product.</p>
+        <p className="mx-auto mt-5 w-full max-w-4xl text-base font-medium leading-8 text-black/55 dark:text-white/55">I work across the product stack: high-quality front-end, backend services, AI-assisted engineering, automation, testing and data. The goal is not more technology — it is a cleaner, faster and more reliable product.</p>
       </div>
 
       <div className="mt-14 grid gap-3 md:grid-cols-2 lg:grid-cols-3">

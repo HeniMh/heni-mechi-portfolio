@@ -9,12 +9,12 @@ export function Projects() {
   return (
     <section id="work" className="bg-[#111318] py-28 text-white">
       <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
-        <div data-reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div data-reveal className="w-full text-center">
           <div>
             <span className="section-kicker !text-white/40">02 / Selected work</span>
-            <h2 className="section-title mt-5 !text-white">Projects shaped in real production environments.</h2>
+            <h2 className="section-title mx-auto mt-5 !text-white">Projects shaped in real production environments.</h2>
           </div>
-          <p className="max-w-xl text-sm font-medium leading-7 text-white/50">Enterprise, e-commerce, hospitality and cultural platforms where responsive quality, maintainability, performance and business constraints all matter.</p>
+          <p className="mx-auto mt-5 w-full max-w-3xl text-sm font-medium leading-7 text-white/50">Enterprise, e-commerce, hospitality and cultural platforms where responsive quality, maintainability, performance and business constraints all matter.</p>
         </div>
 
         <div data-reveal className="mt-14 grid gap-4 lg:grid-cols-[.34fr_.66fr]">
