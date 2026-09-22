@@ -186,7 +186,7 @@ export const skillIconNames: Record<string, IconName> = {
 
 const skillBrandIcons: Record<string, { icon: IconType; color: string }> = {
   React: { icon: SiReact, color: '#61DAFB' },
-  'Next.js': { icon: SiNextdotjs, color: '#ffffff' },
+  'Next.js': { icon: SiNextdotjs, color: 'currentColor' },
   TypeScript: { icon: SiTypescript, color: '#3178C6' },
   JavaScript: { icon: SiJavascript, color: '#F7DF1E' },
   'Redux Toolkit': { icon: SiRedux, color: '#764ABC' },
@@ -196,7 +196,7 @@ const skillBrandIcons: Record<string, { icon: IconType; color: string }> = {
   HTML5: { icon: SiHtml5, color: '#E34F26' },
   CSS3: { icon: SiCss, color: '#1572B6' },
   'Node.js': { icon: SiNodedotjs, color: '#5FA04E' },
-  Express: { icon: SiExpress, color: '#ffffff' },
+  Express: { icon: SiExpress, color: 'currentColor' },
   NestJS: { icon: SiNestjs, color: '#E0234E' },
   PostgreSQL: { icon: SiPostgresql, color: '#4169E1' },
   MySQL: { icon: SiMysql, color: '#4479A1' },
@@ -215,7 +215,7 @@ const skillBrandIcons: Record<string, { icon: IconType; color: string }> = {
   Docker: { icon: SiDocker, color: '#2496ED' },
   Webpack: { icon: SiWebpack, color: '#8DD6F9' },
   Jira: { icon: SiJira, color: '#2684FF' },
-  Cursor: { icon: SiCursor, color: '#ffffff' },
+  Cursor: { icon: SiCursor, color: 'currentColor' },
   'Claude AI': { icon: SiClaude, color: '#D97757' },
 };
 
@@ -228,7 +228,8 @@ export function SkillIcon({ skill, className = '' }: { skill: string; className?
   const brand = skillBrandIcons[skill];
   if (brand) {
     const BrandIcon = brand.icon;
-    return <BrandIcon className={className} color={brand.color} aria-hidden="true" />;
+    const neutralClass = brand.color === 'currentColor' ? ' text-[#111318] dark:text-white' : '';
+    return <BrandIcon className={`${className}${neutralClass}`} color={brand.color} aria-hidden="true" />;
   }
 
   return <Icon name={skillIconNames[skill]} className={`${className} text-[#d9ff63]`} />;
