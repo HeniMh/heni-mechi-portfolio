@@ -1,6 +1,6 @@
 import express from 'express';
 import cors, { type CorsOptions } from 'cors';
-import helmet from 'helmet';
+import * as helmet from 'helmet';
 import { emailProvider, env, isEmailConfigured, isGmailScriptConfigured } from './utils/env.js';
 import { isAllowedOrigin } from './utils/cors.js';
 import { contactRoutes } from './routes/contactRoutes.js';
@@ -8,7 +8,7 @@ import { messageForDeliveryError, verifySmtpConnection } from './services/contac
 
 const app = express();
 
-app.use(helmet());
+app.use(helmet.default());
 const corsOptions: CorsOptions = {
   origin(origin, callback) {
     if (isAllowedOrigin(origin)) callback(null, true);
