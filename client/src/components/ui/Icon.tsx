@@ -45,6 +45,41 @@ import {
   type LucideIcon,
   createLucideIcon,
 } from 'lucide-react';
+import {
+  SiClaude,
+  SiCss,
+  SiCypress,
+  SiCursor,
+  SiDocker,
+  SiDrupal,
+  SiExpress,
+  SiGit,
+  SiHtml5,
+  SiHubspot,
+  SiJest,
+  SiJira,
+  SiJavascript,
+  SiMake,
+  SiMongodb,
+  SiMysql,
+  SiN8N,
+  SiNestjs,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiReact,
+  SiReactquery,
+  SiRedux,
+  SiSass,
+  SiTailwindcss,
+  SiTestinglibrary,
+  SiTypescript,
+  SiVitest,
+  SiWebpack,
+  SiZapier,
+} from 'react-icons/si';
+import type { IconType } from 'react-icons/lib';
 
 /** Lucide removed brand icons; built with lucide-react's createLucideIcon (stroke style). */
 const Linkedin = createLucideIcon('Linkedin', [
@@ -149,7 +184,52 @@ export const skillIconNames: Record<string, IconName> = {
   'Claude AI': 'ai',
 };
 
+const skillBrandIcons: Record<string, { icon: IconType; color: string }> = {
+  React: { icon: SiReact, color: '#61DAFB' },
+  'Next.js': { icon: SiNextdotjs, color: '#ffffff' },
+  TypeScript: { icon: SiTypescript, color: '#3178C6' },
+  JavaScript: { icon: SiJavascript, color: '#F7DF1E' },
+  'Redux Toolkit': { icon: SiRedux, color: '#764ABC' },
+  'React Query': { icon: SiReactquery, color: '#FF4154' },
+  'Tailwind CSS': { icon: SiTailwindcss, color: '#06B6D4' },
+  Sass: { icon: SiSass, color: '#CC6699' },
+  HTML5: { icon: SiHtml5, color: '#E34F26' },
+  CSS3: { icon: SiCss, color: '#1572B6' },
+  'Node.js': { icon: SiNodedotjs, color: '#5FA04E' },
+  Express: { icon: SiExpress, color: '#ffffff' },
+  NestJS: { icon: SiNestjs, color: '#E0234E' },
+  PostgreSQL: { icon: SiPostgresql, color: '#4169E1' },
+  MySQL: { icon: SiMysql, color: '#4479A1' },
+  MongoDB: { icon: SiMongodb, color: '#47A248' },
+  Prisma: { icon: SiPrisma, color: '#5A67D8' },
+  Jest: { icon: SiJest, color: '#C21325' },
+  'React Testing Library': { icon: SiTestinglibrary, color: '#E33332' },
+  Vitest: { icon: SiVitest, color: '#FCC72B' },
+  Cypress: { icon: SiCypress, color: '#69D3A7' },
+  n8n: { icon: SiN8N, color: '#EA4B71' },
+  Make: { icon: SiMake, color: '#6D00CC' },
+  Zapier: { icon: SiZapier, color: '#FF4A00' },
+  'HubSpot CRM': { icon: SiHubspot, color: '#FF7A59' },
+  Drupal: { icon: SiDrupal, color: '#0678BE' },
+  Git: { icon: SiGit, color: '#F05032' },
+  Docker: { icon: SiDocker, color: '#2496ED' },
+  Webpack: { icon: SiWebpack, color: '#8DD6F9' },
+  Jira: { icon: SiJira, color: '#2684FF' },
+  Cursor: { icon: SiCursor, color: '#ffffff' },
+  'Claude AI': { icon: SiClaude, color: '#D97757' },
+};
+
 export function Icon({ name, className = '' }: { name: IconName; className?: string }) {
   const LucideIconComponent = icons[name];
   return <LucideIconComponent className={className} strokeWidth={1.9} aria-hidden="true" />;
+}
+
+export function SkillIcon({ skill, className = '' }: { skill: string; className?: string }) {
+  const brand = skillBrandIcons[skill];
+  if (brand) {
+    const BrandIcon = brand.icon;
+    return <BrandIcon className={className} color={brand.color} aria-hidden="true" />;
+  }
+
+  return <Icon name={skillIconNames[skill]} className={`${className} text-[#d9ff63]`} />;
 }

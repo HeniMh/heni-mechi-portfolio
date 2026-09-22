@@ -1,5 +1,5 @@
 import { portfolio } from '@/data/portfolio';
-import { Icon, skillIconNames } from '@/components/ui/Icon';
+import { SkillIcon } from '@/components/ui/Icon';
 
 const groups = [
   { title: 'Frontend', match: ['React','Next.js','TypeScript','JavaScript','Redux Toolkit','React Query','Tailwind CSS','Sass','HTML5','CSS3'] },
@@ -31,7 +31,7 @@ export function Skills() {
             <div className="mt-6 flex flex-wrap gap-2">
               {group.match.filter(skill => portfolio.skills.includes(skill)).map(skill => (
                 <span key={skill} className="inline-flex items-center gap-2 rounded-full border border-current/10 bg-white/35 px-3 py-2 text-xs font-extrabold dark:bg-white/5">
-                  <Icon name={skillIconNames[skill]} className="h-3.5 w-3.5 shrink-0" />
+                  <SkillIcon skill={skill} className="h-3.5 w-3.5 shrink-0" />
                   {skill}
                 </span>
               ))}
