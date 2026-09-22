@@ -1,6 +1,6 @@
-import express from 'express';
+import express, { type RequestHandler } from 'express';
 import cors, { type CorsOptions } from 'cors';
-import * as helmet from 'helmet';
+import helmet from 'helmet';
 import { emailProvider, env, isEmailConfigured, isGmailScriptConfigured } from './utils/env.js';
 import { isAllowedOrigin } from './utils/cors.js';
 import { contactRoutes } from './routes/contactRoutes.js';
@@ -8,7 +8,8 @@ import { messageForDeliveryError, verifySmtpConnection } from './services/contac
 
 const app = express();
 
-app.use(helmet.default());
+const securityHeaders = (helmet as unknown as () => RequestHandler)();
+app.use(securityHeaders);
 const corsOptions: CorsOptions = {
   origin(origin, callback) {
     if (isAllowedOrigin(origin)) callback(null, true);
