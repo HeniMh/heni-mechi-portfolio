@@ -37,8 +37,13 @@ import {
   LayoutList,
   MousePointer2,
   Sparkles,
-  createLucideIcon,
+  ServerCog,
+  CloudCog,
+  TestTube2,
+  Workflow,
+  Bot,
   type LucideIcon,
+  createLucideIcon,
 } from 'lucide-react';
 
 /** Lucide removed brand icons; built with lucide-react's createLucideIcon (stroke style). */
@@ -52,7 +57,8 @@ export type IconName =
   | 'code' | 'rocket' | 'briefcase' | 'mail' | 'phone' | 'linkedin' | 'menu' | 'x' | 'sun' | 'moon' | 'arrow' | 'check'
   | 'monitor' | 'speed' | 'layers' | 'support' | 'audit' | 'design' | 'react' | 'next' | 'typescript'
   | 'javascript' | 'redux' | 'query' | 'tailwind' | 'sass' | 'html' | 'css' | 'node' | 'express'
-  | 'drupal' | 'twig' | 'hybris' | 'git' | 'docker' | 'webpack' | 'jira' | 'cursor' | 'ai';
+  | 'drupal' | 'twig' | 'hybris' | 'git' | 'docker' | 'webpack' | 'jira' | 'cursor' | 'ai'
+  | 'rest' | 'openai' | 'database' | 'prisma' | 'testing' | 'automation' | 'crm';
 
 const icons: Record<IconName, LucideIcon> = {
   code: Code2,
@@ -94,6 +100,13 @@ const icons: Record<IconName, LucideIcon> = {
   jira: LayoutList,
   cursor: MousePointer2,
   ai: Sparkles,
+  rest: ServerCog,
+  openai: Bot,
+  database: CloudCog,
+  prisma: Database,
+  testing: TestTube2,
+  automation: Workflow,
+  crm: Briefcase,
 };
 
 export const skillIconNames: Record<string, IconName> = {
@@ -109,6 +122,22 @@ export const skillIconNames: Record<string, IconName> = {
   CSS3: 'css',
   'Node.js': 'node',
   Express: 'express',
+  NestJS: 'node',
+  'REST APIs': 'rest',
+  'OpenAI API': 'openai',
+  PostgreSQL: 'database',
+  MySQL: 'database',
+  MongoDB: 'database',
+  Prisma: 'prisma',
+  Jest: 'testing',
+  'React Testing Library': 'testing',
+  Vitest: 'testing',
+  Cypress: 'testing',
+  Playwright: 'testing',
+  n8n: 'automation',
+  Make: 'automation',
+  Zapier: 'automation',
+  'HubSpot CRM': 'crm',
   Drupal: 'drupal',
   Twig: 'twig',
   Hybris: 'hybris',
