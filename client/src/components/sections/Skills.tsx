@@ -18,19 +18,19 @@ export function Skills() {
           <span className="section-kicker">03 / Stack</span>
           <h2 className="section-title mx-auto mt-5">Full-stack, from React interfaces to NestJS APIs.</h2>
         </div>
-        <p className="mx-auto mt-5 w-full max-w-4xl text-base font-medium leading-8 text-black/55 dark:text-white/55">React.js, Next.js and TypeScript on the front end; Node.js, Express.js and NestJS with PostgreSQL, MySQL and MongoDB on the back end — backed by tests, CI/CD and Docker.</p>
+        <p className="mx-auto mt-5 w-full max-w-2xl text-base leading-8 text-black/70 dark:text-white/70">React.js, Next.js and TypeScript on the front end; Node.js, Express.js and NestJS with PostgreSQL, MySQL and MongoDB on the back end — backed by tests, CI/CD and Docker.</p>
       </div>
 
       <div className="mt-14 grid gap-3 lg:grid-cols-2">
         {groups.map((group, index) => (
-          <article key={group.title} data-reveal className={`rounded-[2rem] border border-black/10 p-6 dark:border-white/10 ${index === 1 || index === 4 ? 'bg-[#efe7ff] text-black dark:bg-[#211c2c] dark:text-white' : 'bg-white/45 text-[#111318] dark:bg-white/[.035] dark:text-white'}`}>
+          <article key={group.title} data-reveal className="card p-6">
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-lg font-extrabold tracking-tight">{group.title}</h3>
-              <span className="rounded-full border border-current/10 px-3 py-1 text-[9px] font-extrabold uppercase tracking-[.12em] opacity-45">{String(index + 1).padStart(2, '0')}</span>
+              <h3 className="text-lg font-bold tracking-tight">{group.title}</h3>
+              <span className="text-xs font-bold tabular-nums text-black/45 dark:text-white/45">{String(index + 1).padStart(2, '0')}</span>
             </div>
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2">
               {group.match.filter(skill => portfolio.skills.includes(skill)).map(skill => (
-                <span key={skill} className="inline-flex items-center gap-2 rounded-full border border-current/10 bg-white/35 px-3 py-2 text-xs font-extrabold dark:bg-white/5">
+                <span key={skill} className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-2 text-[13px] font-semibold text-[#111318] dark:border-white/10 dark:bg-white/5 dark:text-white">
                   <SkillIcon skill={skill} className="h-3.5 w-3.5 shrink-0" />
                   {skill}
                 </span>

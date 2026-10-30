@@ -11,16 +11,18 @@ export function Services() {
           <span className="section-kicker">01 / Expertise</span>
           <h2 className="section-title mx-auto mt-5">From interface to infrastructure.</h2>
         </div>
-        <p className="mx-auto mt-5 w-full max-w-4xl text-base font-medium leading-8 text-black/55 dark:text-white/55">I work across the product stack: React and Next.js interfaces, Node.js and NestJS APIs, databases, testing, performance and CI/CD. The goal is not more technology — it is a cleaner, faster and more reliable product.</p>
+        <p className="mx-auto mt-5 w-full max-w-2xl text-base leading-8 text-black/70 dark:text-white/70">I work across the product stack: React and Next.js interfaces, Node.js and NestJS APIs, databases, testing, performance and CI/CD. The goal is not more technology — it is a cleaner, faster and more reliable product.</p>
       </div>
 
       <div className="mt-14 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
         {portfolio.services.map(([title, text], index) => (
-          <article key={title} data-reveal className={`group min-h-[270px] rounded-[2rem] border border-black/10 p-7 transition duration-300 hover:-translate-y-1 dark:border-white/10 ${index === 0 ? 'bg-[#111318] text-white' : index === 3 ? 'bg-[#d9ff63] text-black' : 'bg-white/45 text-[#111318] dark:bg-white/[.035] dark:text-white'}`}>
-            <div className={`grid h-12 w-12 place-items-center rounded-2xl border ${index === 0 ? 'border-white/15 bg-white/10' : 'border-black/10 bg-white/45 dark:border-white/10 dark:bg-white/5'}`}><Icon name={icons[index]} className="h-5 w-5" /></div>
-            <span className="mt-10 block text-[10px] font-extrabold uppercase tracking-[.16em] opacity-40">0{index + 1}</span>
-            <h3 className="mt-3 text-xl font-extrabold tracking-[-.025em]">{title}</h3>
-            <p className="mt-3 text-sm font-medium leading-7 opacity-[.62]">{text}</p>
+          <article key={title} data-reveal className="card group p-7 transition duration-300 hover:-translate-y-1 hover:border-black/20 dark:hover:border-white/20">
+            <div className="flex items-center justify-between">
+              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#111318] text-[#d9ff63] dark:bg-[#d9ff63] dark:text-[#111318]"><Icon name={icons[index]} className="h-5 w-5" /></div>
+              <span className="text-xs font-bold tabular-nums text-black/45 dark:text-white/45">0{index + 1}</span>
+            </div>
+            <h3 className="mt-8 text-xl font-bold tracking-[-.02em]">{title}</h3>
+            <p className="mt-3 text-[15px] leading-7 text-black/70 dark:text-white/70">{text}</p>
           </article>
         ))}
       </div>
