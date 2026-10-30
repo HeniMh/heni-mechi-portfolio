@@ -2,77 +2,77 @@ import type { PortfolioData } from '@/types/portfolio';
 
 export const portfolio: PortfolioData = {
   name: 'Heni Mechi',
-  role: 'Senior Front-End Developer',
+  role: 'Senior Full-Stack Developer',
   email: 'hanimechi96@gmail.com',
   phone: '+21629002187',
   whatsapp: '+330651835413',
   linkedin: 'Heni Mechi',
   linkedinUrl: 'https://www.linkedin.com/in/heni-mechi-431919177',
   hero: {
-    title: 'I design and build clean, high-performance front-end experiences.',
-    subtitle: 'Senior Front-End Developer specialized in React, Next.js and modern UI engineering — with solid experience in Node.js, NestJS, CRM automation, testing and databases to support end-to-end product delivery.',
-    badge: 'Available for product teams · freelance · long-term missions',
+    title: 'I design, build and maintain fast, reliable full-stack web applications.',
+    subtitle: 'Senior Full-Stack Developer with 5+ years of experience — React.js, Next.js and TypeScript on the front end, Node.js, Express.js and NestJS for back-end services and REST APIs. High-traffic e-commerce, booking platforms and institutional sites for clients like Conforama, Accor and Michelin.',
+    badge: 'Based in Sousse (Tunisia) · remote or relocation to France',
     cta1: 'Explore selected work',
     cta2: 'Start a conversation'
   },
   stats: [
-    ['6+', 'years building production interfaces'],
+    ['5+', 'years building production web applications'],
     ['7', 'major client environments'],
-    ['Front-end', 'performance, UI & accessibility'],
-    ['Beyond front-end', 'Node.js, NestJS, data & automation']
+    ['95%', 'test coverage reached on Astore (Accor)'],
+    ['96/100', 'Lighthouse on Conforama product pages']
   ],
-  brands: ['Accor Hotels', 'Comédie-Française', 'Conforama', 'Michelin', 'Macif', 'STEF', 'La Maison du Chocolat'],
+  brands: ['Accor', 'Comédie-Française', 'Conforama', 'Michelin', 'Macif', 'STEF', 'La Maison du Chocolat'],
   situations: [
-    ['Front-end product engineering', 'Design systems, complex React interfaces, state management, responsive behavior and maintainable UI architecture.'],
-    ['Modern delivery workflow', 'React, Next.js and TypeScript delivery supported by AI-assisted workflows for faster refactoring, component generation and quality improvement.'],
-    ['Automation & CRM', 'Workflow orchestration with n8n, Make, Zapier and CRM integrations to connect forms, leads, notifications and business processes.']
+    ['Full-stack product engineering', 'React and Next.js interfaces backed by Node.js and NestJS REST APIs, with clean data models, authentication and authorization.'],
+    ['High-traffic e-commerce', 'Customer journeys, Core Web Vitals and technical SEO on a platform serving 5 to 10 million visits per month.'],
+    ['Quality & team practices', 'Unit and integration tests, code reviews, production incident fixing and mentoring junior developers in Agile/Scrum teams.']
   ],
   services: [
-    ['Front-end product engineering', 'React, Next.js and TypeScript applications with robust component architecture, state management and responsive UI.'],
-    ['Full-stack development', 'Node.js, Express and NestJS services, REST APIs, authentication, data flows and third-party integrations.'],
-    ['AI-assisted engineering', 'Practical AI integration and AI-augmented development using OpenAI APIs, Claude and Cursor while keeping engineering quality in control.'],
-    ['CRM & workflow automation', 'n8n, Make, Zapier and CRM-oriented automations for lead capture, notifications, data synchronization and operations.'],
-    ['Testing & quality', 'Unit, integration and end-to-end testing with Jest, React Testing Library, Vitest, Cypress and Playwright.'],
-    ['Performance & accessibility', 'Core Web Vitals, image and bundle optimization, semantic HTML, responsive behavior and accessibility-focused implementation.']
+    ['Front-end product engineering', 'React.js, Next.js (SSR/SSG) and TypeScript applications with reusable components, Redux Toolkit and React Query.'],
+    ['Back-end & REST APIs', 'Node.js, Express.js and NestJS services, TypeORM data modeling, authentication, authorization, error handling and integrations.'],
+    ['E-commerce & payments', 'BFF layers on SAP Commerce Cloud (Hybris) OCC APIs, MongoDB caching and server-side Monext payment integration.'],
+    ['Testing & quality', 'Unit and integration tests with Jest and React Testing Library, code reviews, debugging and corrective maintenance.'],
+    ['Performance & SEO', 'Core Web Vitals, lazy loading, code splitting, interface optimization and technical SEO.'],
+    ['DevOps & AI-assisted delivery', 'Docker, CI/CD with GitHub Actions and GitLab CI, and AI assistants like Claude and Cursor to speed up delivery.']
   ],
   projects: [
-    { title:'Accor Hotels', image:'/assets/astore.png', role:'Front-End / Client Project Lead', description:'Multilingual and multi-region hospitality interfaces, reusable components, responsive adaptation, performance optimization and API-connected experiences.', tags:['React','JavaScript','Node.js','Drupal','Twig','AI-assisted workflow'] },
-    { title:'Comédie-Française', image:'/assets/comedie.png', role:'Full-Stack Developer', description:'Website and ticketing redesign with modern React interfaces, reservation flows, payment integration, API services and performance improvements.', tags:['React','Redux Toolkit','React Query','Node.js','REST','Monext'] },
-    { title:'Conforama', image:'/assets/conforama.png', role:'Full-Stack Developer', description:'Large-scale e-commerce modernization with TypeScript, reusable React architecture, service integrations, data validation and Core Web Vitals optimization.', tags:['React','TypeScript','Node.js','MongoDB','Redux Toolkit','Hybris'] },
-    { title:'Michelin / Digital Week', image:'/assets/digitalweek.png', role:'Front-End Developer', description:'Responsive corporate experience delivered for an international brand with structured front-end integration and polished interactions.', tags:['HTML5','Sass','JavaScript','jQuery','Gulp'] },
-    { title:'Macif', image:'/assets/macif.png', role:'Front-End Developer', description:'Reusable pages and design-system components integrated into a Drupal ecosystem with responsive, accessible front-end implementation.', tags:['Drupal','Twig','Bootstrap','JavaScript'] },
-    { title:'STEF', image:'/assets/stef.png', role:'Front-End Developer', description:'Drupal multisite blocks and corporate interface work for a logistics platform, with reusable templates and responsive behavior.', tags:['Drupal','Twig','Docker','JavaScript'] }
+    { title:'Astore Procurement (Accor)', image:'/assets/astore.png', role:'Full-Stack Developer', description:'Procurement platform for hospitality professionals: Next.js SSR features, NestJS/TypeORM/PostgreSQL REST APIs with authentication and authorization, React Query data layer and test coverage raised to 95%.', tags:['Next.js','React','TypeScript','React Query','NestJS','PostgreSQL','Jest'] },
+    { title:'Comédie-Française', image:'/assets/comedie.png', role:'Full-Stack Developer', description:'Redesign of the institutional site and online booking and ticketing platform: responsive React interfaces, Redux Toolkit state, Node.js booking APIs and server-side Monext payments.', tags:['React','TypeScript','Redux Toolkit','Node.js','REST','Monext'] },
+    { title:'Conforama', image:'/assets/conforama.png', role:'Full-Stack Developer', description:'E-commerce platform with 5 to 10 million monthly visits: reusable React components, Lighthouse 96/100 on product pages and a Node.js/Express BFF on SAP Commerce Cloud OCC APIs with MongoDB caching.', tags:['React','TypeScript','Node.js','Express','MongoDB','Hybris'] },
+    { title:'Michelin / Digital Week', image:'/assets/digitalweek.png', role:'Full-Stack Developer', description:'Responsive React pages and components faithful to UI/UX mockups, powered by REST APIs built with Node.js, Express.js and MySQL.', tags:['React','JavaScript','Node.js','Express','MySQL','Sass'] },
+    { title:'Macif', image:'/assets/macif.png', role:'Full-Stack Developer', description:'Quote simulators and forms in React integrated into Drupal/Twig templates, with a Node.js/Express BFF to pricing services and MySQL storage.', tags:['React','Node.js','Express','MySQL','Drupal','Twig'] },
+    { title:'STEF', image:'/assets/stef.png', role:'Web Developer', description:'Institutional sites and multisite platform for a European temperature-controlled logistics group, with responsive Drupal/Twig pages maintained under Docker.', tags:['Drupal','Twig','JavaScript','jQuery','Docker'] }
   ],
   process: [
-    ['01', 'Understand', 'Clarify the product goal, users, business constraints, technical context and the parts where AI or automation can create real leverage.'],
-    ['02', 'Architect', 'Define the component model, data flow, API boundaries, testing strategy and automation touchpoints before implementation gets complex.'],
-    ['03', 'Build', 'Develop iteratively with React / Next.js, Node / NestJS, typed contracts and AI-assisted engineering used as an accelerator — not a substitute for judgment.'],
-    ['04', 'Validate & ship', 'Test critical flows, optimize performance and accessibility, verify responsive behavior and deliver a maintainable production-ready result.']
+    ['01', 'Understand', 'Analyze functional needs, users, business constraints and technical context to design a solution that fits the project goals.'],
+    ['02', 'Architect', 'Define the component model, data flow, API contracts, data models, authentication and testing strategy before implementation gets complex.'],
+    ['03', 'Build', 'Develop front end and back end iteratively with React / Next.js, Node.js / NestJS and typed contracts, with code reviews along the way.'],
+    ['04', 'Validate & ship', 'Cover critical flows with tests, optimize performance, containerize with Docker and automate deployments with CI/CD.']
   ],
   skills: [
-    'React','Next.js','TypeScript','JavaScript','Redux Toolkit','React Query','Tailwind CSS','Sass','HTML5','CSS3',
-    'Node.js','Express','NestJS','REST APIs','OpenAI API',
-    'PostgreSQL','MySQL','MongoDB','Prisma',
-    'Jest','React Testing Library','Vitest','Cypress','Playwright',
-    'n8n','Make','Zapier','HubSpot CRM',
-    'Drupal','Twig','Hybris','Git','Docker','Webpack','Jira','Cursor','Claude AI'
+    'React','Next.js','TypeScript','JavaScript','Redux Toolkit','React Query','Sass','HTML5','CSS3',
+    'Node.js','Express','NestJS','REST APIs','TypeORM',
+    'PostgreSQL','MySQL','MongoDB',
+    'Jest','React Testing Library',
+    'Git','GitHub Actions','GitLab CI','Docker','Webpack','Jira',
+    'Drupal','Twig','Hybris','Cursor','Claude AI'
   ],
   freelance: [
-    ['AI-ready product development', 'Build or modernize a web product with a clean React/Next.js foundation and room for AI features, automation and data integrations.'],
-    ['CRM automation systems', 'Connect forms, CRM, email, internal tools and notifications with n8n, Make or Zapier to reduce repetitive manual work.'],
+    ['Custom web applications', 'From requirements to production: analysis, React/Next.js front end, NestJS or Node.js back end and deployment.'],
     ['Full-stack feature delivery', 'Own a feature end-to-end: UI, API, validation, database integration, tests and production polish.'],
+    ['APIs & integrations', 'REST APIs with authentication and authorization, third-party services and payment integrations.'],
     ['Frontend modernization', 'Refactor legacy interfaces into faster, cleaner and more maintainable component systems without losing business functionality.'],
-    ['Quality & test coverage', 'Add pragmatic testing around critical user flows using unit, integration and end-to-end tooling.'],
-    ['Performance & accessibility', 'Improve Core Web Vitals, responsive quality, semantic structure and usability across devices.']
+    ['Quality & test coverage', 'Add pragmatic unit and integration tests around critical user flows with Jest and React Testing Library.'],
+    ['Performance & SEO', 'Improve Core Web Vitals, technical SEO, responsive quality and usability across devices.']
   ],
   packages: [
     { name: 'Product Sprint', price: 'Scoped project', description: 'A focused implementation sprint for a feature, flow or product milestone.', items: ['React / Next.js delivery', 'API integration', 'Responsive QA', 'Technical handover'] },
-    { name: 'Automation Sprint', price: 'Scoped project', description: 'Connect your website, CRM and operational tools into one reliable workflow.', items: ['n8n / Make / Zapier', 'CRM + forms', 'Notifications & sync', 'Failure-path checks'] },
-    { name: 'Embedded Developer', price: 'Monthly / contract', description: 'Longer collaboration inside an existing product or engineering team.', items: ['Feature delivery', 'Architecture & refactoring', 'Testing & performance', 'AI-augmented workflow'] }
+    { name: 'Full-Stack Build', price: 'Scoped project', description: 'A complete web application, from requirements to production.', items: ['Next.js + NestJS', 'PostgreSQL / MongoDB', 'Tests & CI/CD', 'Docker deployment'] },
+    { name: 'Embedded Developer', price: 'Monthly / contract', description: 'Longer collaboration inside an existing product or engineering team.', items: ['Feature delivery', 'Architecture & refactoring', 'Testing & performance', 'Code reviews & mentoring'] }
   ],
   testimonials: [
     ['Senior delivery mindset', 'Comfortable moving from UI detail to architecture, APIs and production constraints without losing sight of the user experience.'],
-    ['Modern engineering workflow', 'AI tools are used to accelerate exploration and execution while code quality, testing and decisions stay engineering-led.'],
+    ['Quality-driven engineering', 'Tests, code reviews and performance are part of the work, not an afterthought — with AI tools used to accelerate, not replace, judgment.'],
     ['Business-aware implementation', 'Technical choices are tied to speed, maintainability, conversion, accessibility and the operational reality of the product.']
   ]
 };

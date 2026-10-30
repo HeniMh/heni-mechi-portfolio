@@ -182,6 +182,9 @@ export const skillIconNames: Record<string, IconName> = {
   Jira: 'jira',
   Cursor: 'cursor',
   'Claude AI': 'ai',
+  TypeORM: 'database',
+  'GitHub Actions': 'git',
+  'GitLab CI': 'git',
 };
 
 const skillBrandIcons: Record<string, { icon: IconType; color: string }> = {

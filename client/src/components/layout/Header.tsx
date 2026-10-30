@@ -33,7 +33,7 @@ export function Header() {
             <Logo />
             <span className="leading-tight">
               <strong className="block text-sm font-extrabold tracking-tight text-[#111318] dark:text-white">{portfolio.name}</strong>
-              <span className="hidden text-[10px] font-bold uppercase tracking-[.14em] text-black/45 dark:text-white/45 sm:block">Senior Front-End Developer</span>
+              <span className="hidden text-[10px] font-bold uppercase tracking-[.14em] text-black/45 dark:text-white/45 sm:block">Senior Full-Stack Developer</span>
             </span>
           </a>
 

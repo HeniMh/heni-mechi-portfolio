@@ -12,7 +12,7 @@ export function Hero() {
             {portfolio.hero.badge}
           </div>
 
-          <p className="mb-4 text-sm font-extrabold uppercase tracking-[.22em] text-black/35 dark:text-white/35">Senior front-end developer</p>
+          <p className="mb-4 text-sm font-extrabold uppercase tracking-[.22em] text-black/35 dark:text-white/35">Senior full-stack developer</p>
           <h1 className="max-w-[760px] font-display text-[clamp(2.85rem,6.5vw,6.2rem)] font-extrabold leading-[.92] tracking-[-0.055em] text-[#111318] dark:text-white">
             Senior Front-End <span className="text-outline">Developer.</span>
           </h1>
@@ -42,7 +42,7 @@ export function Hero() {
             <div className="absolute inset-x-0 top-0 z-10 h-28 bg-gradient-to-b from-black/25 to-transparent" />
             <picture>
               <source srcSet="/assets/heni-real-photo.webp" type="image/webp" />
-              <img src="/assets/heni-real-photo.png" alt="Heni Mechi — Senior Front-End Developer" width={1122} height={1402} className="aspect-[4/5] w-full rounded-[1.8rem] object-cover object-[50%_18%]" fetchPriority="high" />
+              <img src="/assets/heni-real-photo.png" alt="Heni Mechi — Senior Full-Stack Developer" width={1122} height={1402} className="aspect-[4/5] w-full rounded-[1.8rem] object-cover object-[50%_18%]" fetchPriority="high" />
             </picture>
             <div className="absolute inset-x-6 bottom-6 z-20 rounded-2xl border border-white/15 bg-black/55 p-4 text-white backdrop-blur-xl">
               <div className="flex items-center justify-between gap-4">

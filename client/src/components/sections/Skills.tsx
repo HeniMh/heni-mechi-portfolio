@@ -3,11 +3,11 @@ import { SkillIcon } from '@/components/ui/Icon';
 
 const groups = [
   { title: 'Frontend', match: ['React','Next.js','TypeScript','JavaScript','Redux Toolkit','React Query','Tailwind CSS','Sass','HTML5','CSS3'] },
-  { title: 'Backend & APIs', match: ['Node.js','Express','NestJS','REST APIs','OpenAI API'] },
-  { title: 'Data', match: ['PostgreSQL','MySQL','MongoDB','Prisma'] },
-  { title: 'Testing', match: ['Jest','React Testing Library','Vitest','Cypress','Playwright'] },
-  { title: 'Automation & CRM', match: ['n8n','Make','Zapier','HubSpot CRM'] },
-  { title: 'Platforms & delivery', match: ['Drupal','Twig','Hybris','Git','Docker','Webpack','Jira','Cursor','Claude AI'] }
+  { title: 'Backend & APIs', match: ['Node.js','Express','NestJS','REST APIs','TypeORM'] },
+  { title: 'Data', match: ['PostgreSQL','MySQL','MongoDB'] },
+  { title: 'Testing', match: ['Jest','React Testing Library'] },
+  { title: 'DevOps & CI/CD', match: ['Git','GitHub Actions','GitLab CI','Docker','Webpack','Jira'] },
+  { title: 'CMS, e-commerce & AI', match: ['Drupal','Twig','Hybris','Cursor','Claude AI'] }
 ];
 
 export function Skills() {
@@ -16,9 +16,9 @@ export function Skills() {
       <div data-reveal className="w-full text-center">
         <div className="mx-auto w-full">
           <span className="section-kicker">03 / Stack</span>
-          <h2 className="section-title mx-auto mt-5">Front-end first, with strong supporting technical breadth.</h2>
+          <h2 className="section-title mx-auto mt-5">Full-stack, from React interfaces to NestJS APIs.</h2>
         </div>
-        <p className="mx-auto mt-5 w-full max-w-4xl text-base font-medium leading-8 text-black/55 dark:text-white/55">The core focus stays on front-end excellence — React, Next.js, TypeScript, UI engineering, performance and accessibility — with Node.js, NestJS, CRM automation, testing and databases as complementary strengths.</p>
+        <p className="mx-auto mt-5 w-full max-w-4xl text-base font-medium leading-8 text-black/55 dark:text-white/55">React.js, Next.js and TypeScript on the front end; Node.js, Express.js and NestJS with PostgreSQL, MySQL and MongoDB on the back end — backed by tests, CI/CD and Docker.</p>
       </div>
 
       <div className="mt-14 grid gap-3 lg:grid-cols-2">
