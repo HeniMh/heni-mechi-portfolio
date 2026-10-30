@@ -1,5 +1,5 @@
 export type TupleText = [string, string];
-export type Project = { title:string; image:string; role:string; description:string; tags:string[] };
+export type Project = { title:string; image:string; role:string; period:string; place:string; description:string; tags:string[] };
 export type ProcessStep = [string,string,string];
 export type PackageOffer = { name:string; price:string; description:string; items:string[] };
 export type PortfolioData = {
