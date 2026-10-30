@@ -8,7 +8,7 @@ export function Footer() {
           <strong className="text-sm font-extrabold text-[#111318] dark:text-white">{portfolio.name}</strong>
           <span className="ml-2 text-xs font-bold text-black/35 dark:text-white/35">Senior Full-Stack Developer</span>
         </div>
-        <p className="text-xs font-bold text-black/35 dark:text-white/35">© {new Date().getFullYear()} · React · Next.js · Node.js · NestJS · CRM Automation · Testing · Databases</p>
+        <p className="text-xs font-bold text-black/35 dark:text-white/35">© {new Date().getFullYear()} · React · Next.js · Node.js · NestJS · PostgreSQL · Testing</p>
       </div>
     </footer>
   );

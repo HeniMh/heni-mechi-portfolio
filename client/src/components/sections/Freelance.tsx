@@ -7,10 +7,10 @@ export function Freelance() {
       <div data-reveal className="overflow-hidden rounded-[2.4rem] border border-black/10 bg-[#d9ff63] text-black dark:border-white/10">
         <div className="grid gap-8 p-7 md:p-10 lg:grid-cols-[.8fr_1.2fr]">
           <div>
-            <span className="text-[10px] font-extrabold uppercase tracking-[.18em] opacity-45">AI + automation layer</span>
-            <h2 className="mt-5 max-w-md font-display text-[clamp(2.3rem,4vw,4.5rem)] font-extrabold leading-[.98] tracking-[-.045em]">Less repetitive work. More product leverage.</h2>
-            <p className="mt-5 max-w-md text-sm font-semibold leading-7 opacity-65">I can connect product interfaces with CRM, APIs, AI services and workflow automation — without turning the architecture into a black box.</p>
-            <a href="#contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-extrabold text-white transition hover:-translate-y-1">Discuss an automation <Icon name="arrow" className="h-4 w-4" /></a>
+            <span className="text-[10px] font-extrabold uppercase tracking-[.18em] opacity-45">Full-stack delivery</span>
+            <h2 className="mt-5 max-w-md font-display text-[clamp(2.3rem,4vw,4.5rem)] font-extrabold leading-[.98] tracking-[-.045em]">From requirements to production.</h2>
+            <p className="mt-5 max-w-md text-sm font-semibold leading-7 opacity-65">I build the interface, the API and the database together — tested, containerized with Docker and deployed through CI/CD.</p>
+            <a href="#contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-extrabold text-white transition hover:-translate-y-1">Discuss a project <Icon name="arrow" className="h-4 w-4" /></a>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {portfolio.freelance.slice(0,4).map(([title, text], index) => (

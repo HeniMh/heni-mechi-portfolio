@@ -11,7 +11,7 @@ export function Services() {
           <span className="section-kicker">01 / Expertise</span>
           <h2 className="section-title mx-auto mt-5">From interface to infrastructure.</h2>
         </div>
-        <p className="mx-auto mt-5 w-full max-w-4xl text-base font-medium leading-8 text-black/55 dark:text-white/55">I work across the product stack: high-quality front-end, backend services, AI-assisted engineering, automation, testing and data. The goal is not more technology — it is a cleaner, faster and more reliable product.</p>
+        <p className="mx-auto mt-5 w-full max-w-4xl text-base font-medium leading-8 text-black/55 dark:text-white/55">I work across the product stack: React and Next.js interfaces, Node.js and NestJS APIs, databases, testing, performance and CI/CD. The goal is not more technology — it is a cleaner, faster and more reliable product.</p>
       </div>
 
       <div className="mt-14 grid gap-3 md:grid-cols-2 lg:grid-cols-3">

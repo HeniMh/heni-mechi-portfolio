@@ -94,7 +94,7 @@ export function Contact() {
           <div className="mb-2">
             <span className="text-[10px] font-extrabold uppercase tracking-[.16em] text-black/35 dark:text-white/35">Send a message</span>
             <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight tracking-[-.03em] text-[#111318] dark:text-white">Tell me what you are building.</h2>
-            <p className="mt-2 text-sm font-medium text-black/45 dark:text-white/45">Share the project, opportunity or automation challenge.</p>
+            <p className="mt-2 text-sm font-medium text-black/45 dark:text-white/45">Share the project, mission or opportunity.</p>
           </div>
 
           <label className="grid gap-2 text-xs font-extrabold uppercase tracking-[.08em] text-black/55 dark:text-white/55">
@@ -111,7 +111,7 @@ export function Contact() {
 
           <label className="grid gap-2 text-xs font-extrabold uppercase tracking-[.08em] text-black/55 dark:text-white/55">
             Message
-            <textarea name="message" rows={5} minLength={10} maxLength={3000} placeholder="Project, opportunity, automation, timeline..." aria-invalid={Boolean(showError('message'))} aria-describedby={showError('message') ? 'message-error' : undefined} onBlur={(e) => { setTouched((t) => ({ ...t, message: true })); validateField('message', e.currentTarget.form!); }} className={`resize-y ${inputClass(Boolean(showError('message')))}`} />
+            <textarea name="message" rows={5} minLength={10} maxLength={3000} placeholder="Project, mission, stack, timeline..." aria-invalid={Boolean(showError('message'))} aria-describedby={showError('message') ? 'message-error' : undefined} onBlur={(e) => { setTouched((t) => ({ ...t, message: true })); validateField('message', e.currentTarget.form!); }} className={`resize-y ${inputClass(Boolean(showError('message')))}`} />
             {showError('message') && <span id="message-error" className="text-xs font-bold normal-case tracking-normal text-red-600 dark:text-red-400">{fieldErrors.message}</span>}
           </label>
 
@@ -145,7 +145,7 @@ export function Contact() {
         <div className="relative bg-[#111318] px-5 pb-5 pt-6 text-white">
           <div className="absolute right-0 top-0 h-52 w-52 bg-[#d9ff63]/10 blur-3xl" />
           <h2 className="relative max-w-md font-display text-2xl font-extrabold leading-[1.02] tracking-[-.03em]">Let’s connect.</h2>
-          <p className="relative mt-3 max-w-md text-xs font-medium leading-6 text-white/50">Available for front-end, full-stack and automation opportunities.</p>
+          <p className="relative mt-3 max-w-md text-xs font-medium leading-6 text-white/50">Available for full-stack freelance missions and senior roles.</p>
 
           <div className="relative mt-5 grid gap-2">
             <a href={`mailto:${portfolio.email}`} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[.04] p-3 text-xs font-bold text-white/75 transition hover:bg-white/[.08] hover:text-white"><Icon name="mail" className="h-4 w-4 text-[#d9ff63]" />{portfolio.email}</a>

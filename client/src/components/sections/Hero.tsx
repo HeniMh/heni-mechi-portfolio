@@ -14,7 +14,7 @@ export function Hero() {
 
           <p className="mb-4 text-sm font-extrabold uppercase tracking-[.22em] text-black/35 dark:text-white/35">Senior full-stack developer</p>
           <h1 className="max-w-[760px] font-display text-[clamp(2.85rem,6.5vw,6.2rem)] font-extrabold leading-[.92] tracking-[-0.055em] text-[#111318] dark:text-white">
-            Senior Front-End <span className="text-outline">Developer.</span>
+            Senior Full-Stack <span className="text-outline">Developer.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-[clamp(1rem,1.5vw,1.18rem)] font-medium leading-8 text-black/[.58] dark:text-white/[.58]">{portfolio.hero.subtitle}</p>
 
@@ -36,7 +36,7 @@ export function Hero() {
         <div data-reveal className="relative mx-auto w-full max-w-[450px] lg:mr-0 xl:max-w-[470px]">
           <div className="absolute left-3 top-4 z-20 rounded-2xl md:-left-5 md:top-10 border border-black/10 bg-[#d9ff63] px-4 py-3 text-black shadow-xl dark:border-white/10">
             <span className="block text-[9px] font-extrabold uppercase tracking-[.15em] opacity-55">Currently building with</span>
-            <strong className="mt-1 block text-sm font-extrabold">React · Node.js · NestJS · CRM</strong>
+            <strong className="mt-1 block text-sm font-extrabold">React · Next.js · Node.js · NestJS</strong>
           </div>
           <div className="relative overflow-hidden rounded-[2.4rem] border border-black/10 bg-[#17191d] p-3 shadow-[0_40px_120px_rgba(0,0,0,.22)] dark:border-white/10">
             <div className="absolute inset-x-0 top-0 z-10 h-28 bg-gradient-to-b from-black/25 to-transparent" />
