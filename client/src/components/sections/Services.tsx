@@ -1,31 +1,29 @@
 import { portfolio } from '@/data/portfolio';
-import { Khatam } from '@/components/ui/Ornaments';
+import { Icon, type IconName } from '@/components/ui/Icon';
 
-const numerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
+const icons: IconName[] = ['code','layers','ai','rocket','audit','speed'];
 
 export function Services() {
   return (
-    <section id="expertise" className="shell grid gap-12 py-24 md:py-32 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
-      <div data-reveal className="lg:sticky lg:top-36 lg:self-start">
-        <p className="kicker">§ 01 — Expertise</p>
-        <h2 className="chapter-title mt-6">From interface <em>to</em> infrastructure.</h2>
-        <p className="mt-8 max-w-[46ch] leading-8 text-ink/70">
-          React and Next.js interfaces, Node.js and NestJS APIs, databases, testing, performance and CI/CD. The goal is not more technology — it is a cleaner, faster and more reliable product.
-        </p>
-        <Khatam className="mt-10 h-14 w-14 text-clay/70" />
+    <section id="expertise" className="mx-auto w-[min(1180px,calc(100%-32px))] py-28">
+      <div data-reveal className="w-full text-center">
+        <div className="mx-auto w-full">
+          <span className="section-kicker">01 / Expertise</span>
+          <h2 className="section-title mx-auto mt-5">From interface to infrastructure.</h2>
+        </div>
+        <p className="mx-auto mt-5 w-full max-w-4xl text-base font-medium leading-8 text-black/55 dark:text-white/55">I work across the product stack: React and Next.js interfaces, Node.js and NestJS APIs, databases, testing, performance and CI/CD. The goal is not more technology — it is a cleaner, faster and more reliable product.</p>
       </div>
 
-      <ol className="border-t border-ink/15">
+      <div className="mt-14 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
         {portfolio.services.map(([title, text], index) => (
-          <li key={title} data-reveal className="group grid grid-cols-[3rem_1fr] gap-4 border-b border-ink/15 py-8 md:grid-cols-[4rem_1fr]">
-            <span className="pt-2 font-mono text-xs text-clay">{numerals[index]}.</span>
-            <div>
-              <h3 className="font-display text-[clamp(1.5rem,2.6vw,2rem)] leading-tight transition group-hover:text-azur">{title}</h3>
-              <p className="mt-3 max-w-[56ch] leading-7 text-ink/65">{text}</p>
-            </div>
-          </li>
+          <article key={title} data-reveal className={`group min-h-[270px] rounded-[2rem] border border-black/10 p-7 transition duration-300 hover:-translate-y-1 dark:border-white/10 ${index === 0 ? 'bg-[#111318] text-white' : index === 3 ? 'bg-[#d9ff63] text-black' : 'bg-white/45 text-[#111318] dark:bg-white/[.035] dark:text-white'}`}>
+            <div className={`grid h-12 w-12 place-items-center rounded-2xl border ${index === 0 ? 'border-white/15 bg-white/10' : 'border-black/10 bg-white/45 dark:border-white/10 dark:bg-white/5'}`}><Icon name={icons[index]} className="h-5 w-5" /></div>
+            <span className="mt-10 block text-[10px] font-extrabold uppercase tracking-[.16em] opacity-40">0{index + 1}</span>
+            <h3 className="mt-3 text-xl font-extrabold tracking-[-.025em]">{title}</h3>
+            <p className="mt-3 text-sm font-medium leading-7 opacity-[.62]">{text}</p>
+          </article>
         ))}
-      </ol>
+      </div>
     </section>
   );
 }
