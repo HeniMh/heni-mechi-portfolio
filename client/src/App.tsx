@@ -9,9 +9,11 @@ import { Skills } from '@/components/sections/Skills';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { Contact } from '@/components/sections/Contact';
 import { useReveal } from '@/hooks/useReveal';
+import { useSpotlight } from '@/hooks/useSpotlight';
 
 export default function App() {
   useReveal();
+  useSpotlight();
   return (
     <>
       <Header />

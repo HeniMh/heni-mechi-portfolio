@@ -1,4 +1,5 @@
 import { portfolio } from '@/data/portfolio';
+import { SkillIcon } from '@/components/ui/Icon';
 
 const groups = [
   { title: 'Front end', match: ['React','Next.js','TypeScript','JavaScript','Redux Toolkit','React Query','Sass','HTML5','CSS3'] },
@@ -12,29 +13,32 @@ const groups = [
 export function Skills() {
   return (
     <section id="stack" className="shell py-24 md:py-32">
-      <div data-reveal className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
+      <div data-reveal className="grid gap-6 lg:grid-cols-[1fr_.8fr] lg:items-end">
         <div>
-          <p className="kicker">§ 03 — Stack</p>
-          <h2 className="chapter-title mt-6">The <em>spec sheet.</em></h2>
+          <p className="eyebrow">03 — Stack</p>
+          <h2 className="title mt-5">The tools <span className="title-dim">I ship with.</span></h2>
         </div>
-        <p className="max-w-[52ch] leading-8 text-ink/70">
-          React.js, Next.js and TypeScript on the front end; Node.js, Express.js and NestJS with PostgreSQL, MySQL and MongoDB on the back end — backed by tests, CI/CD and Docker.
-        </p>
+        <p className="max-w-[50ch] leading-7 text-muted lg:justify-self-end">React.js, Next.js and TypeScript on the front end; Node.js, Express.js and NestJS with PostgreSQL, MySQL and MongoDB on the back end — backed by tests, CI/CD and Docker.</p>
       </div>
 
-      <dl className="mt-14 border-t-2 border-ink">
+      <div className="mt-14 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
         {groups.map((group, index) => (
-          <div key={group.title} data-reveal className="grid gap-3 border-b border-ink/15 py-6 md:grid-cols-[3rem_16rem_1fr] md:items-baseline md:gap-4">
-            <span className="hidden font-mono text-xs text-clay md:block">{String(index + 1).padStart(2, '0')}</span>
-            <dt className="font-display text-2xl italic">{group.title}</dt>
-            <dd className="flex flex-wrap gap-x-2 gap-y-1 font-mono text-[13px] leading-7 text-ink/80">
-              {group.match.filter(skill => portfolio.skills.includes(skill)).map((skill, i) => (
-                <span key={skill}>{i > 0 && <span className="mr-2 text-clay/70">/</span>}{skill}</span>
+          <article key={group.title} data-reveal data-spot className="spot card p-6">
+            <div className="flex items-center justify-between">
+              <h3 className="font-semibold tracking-[-.02em]">{group.title}</h3>
+              <span className="font-mono text-xs text-ink/25">0{index + 1}</span>
+            </div>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {group.match.filter(skill => portfolio.skills.includes(skill)).map(skill => (
+                <li key={skill} className="chip group transition hover:border-ink/25 hover:text-ink">
+                  <SkillIcon skill={skill} className="h-3.5 w-3.5 shrink-0 opacity-70 grayscale transition group-hover:opacity-100 group-hover:grayscale-0" />
+                  {skill}
+                </li>
               ))}
-            </dd>
-          </div>
+            </ul>
+          </article>
         ))}
-      </dl>
+      </div>
     </section>
   );
 }

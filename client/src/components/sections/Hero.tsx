@@ -1,66 +1,72 @@
 import { portfolio } from '@/data/portfolio';
 import { Icon } from '@/components/ui/Icon';
-import { ArchPortrait, Khatam } from '@/components/ui/Ornaments';
+import { CountUp } from '@/components/ui/CountUp';
+
+const core = ['React', 'Next.js', 'TypeScript', 'Node.js', 'NestJS', 'PostgreSQL'];
 
 export function Hero() {
   return (
-    <section id="home" className="relative pt-16 md:pt-24">
-      <div className="shell grid items-center gap-14 py-14 md:py-20 lg:grid-cols-[1.15fr_.85fr] lg:gap-20">
-        <div data-reveal>
-          <p className="kicker flex items-center gap-3">
-            <span>§ 00</span>
-            <span className="h-px w-10 bg-azur/50" />
-            <span>Portfolio — 2026 edition</span>
-          </p>
+    <section id="home" data-spot className="relative overflow-hidden pt-[72px]">
+      <div className="glow-follow pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" aria-hidden="true" />
 
-          <h1 className="mt-8 font-display text-[clamp(3rem,7.4vw,6.6rem)] font-light leading-[.94] tracking-[-.035em]" style={{ fontVariationSettings: "'opsz' 144" }}>
-            Senior <em className="font-normal italic text-clay">Full-Stack</em>
-            <br />
-            Developer<span className="text-azur">.</span>
+      <div className="shell relative grid items-center gap-14 pb-16 pt-14 md:pt-20 lg:grid-cols-[1.25fr_.75fr] lg:gap-10">
+        <div>
+          <p className="eyebrow" style={{ animation: 'panelIn .8s ease both' }}>Available for freelance missions</p>
+
+          <h1 className="mt-7">
+            <span className="line-mask"><span className="text-fade text-[clamp(3.6rem,11vw,9.5rem)] font-semibold leading-[.88] tracking-[-.065em]">Heni Mechi</span></span>
+            <span className="line-mask mt-3"><span className="text-[clamp(1.7rem,4vw,3.3rem)] font-medium leading-[1.05] tracking-[-.045em] text-ink/40" style={{ animationDelay: '.12s' }}>
+              Senior <span className="text-ink">Full-Stack</span> Developer<span className="text-accent">.</span>
+            </span></span>
           </h1>
 
-          <p className="mt-6 font-display text-[clamp(1.15rem,2vw,1.5rem)] italic text-muted">
-            Between Sousse and Paris — React, Next.js, Node.js &amp; NestJS.
-          </p>
+          <p className="mt-8 max-w-[58ch] text-[1.05rem] leading-8 text-muted" style={{ animation: 'panelIn 1s .25s ease both' }}>{portfolio.hero.subtitle}</p>
 
-          <p className="mt-8 max-w-[58ch] text-[1.02rem] leading-8 text-ink/75">{portfolio.hero.subtitle}</p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
-            <a href="#work" className="btn-solid">{portfolio.hero.cta1}<Icon name="arrow" className="h-4 w-4" /></a>
-            <a href="#contact" className="btn-link">{portfolio.hero.cta2}</a>
+          <div className="mt-9 flex flex-wrap gap-3" style={{ animation: 'panelIn 1s .35s ease both' }}>
+            <a href="#work" className="btn-primary">{portfolio.hero.cta1}<Icon name="arrow" className="h-4 w-4" /></a>
+            <a href="#contact" className="btn-ghost">{portfolio.hero.cta2}</a>
           </div>
 
-          <p className="mt-10 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[.14em] text-muted">
-            <span className="relative flex h-2 w-2"><span className="absolute inset-0 animate-ping rounded-full bg-clay/60" /><span className="relative h-2 w-2 rounded-full bg-clay" /></span>
-            {portfolio.hero.badge}
-          </p>
+          <ul className="mt-10 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs text-muted" style={{ animation: 'panelIn 1s .45s ease both' }}>
+            {core.map(item => <li key={item} className="flex items-center gap-2"><span className="h-px w-3 bg-ink/25" />{item}</li>)}
+          </ul>
         </div>
 
-        <div data-reveal>
-          <ArchPortrait src="/assets/heni-real-photo.png" webp="/assets/heni-real-photo.webp" alt="Heni Mechi, Senior Full-Stack Developer" />
-          <p className="mx-auto mt-8 max-w-[420px] border-t border-ink/20 pt-3 font-mono text-[10px] uppercase leading-5 tracking-[.14em] text-muted">
-            <span className="text-ink">Fig. 01</span> — Heni Mechi, Sousse (TN).<br />Building web products since 2019.
-          </p>
+        <div className="relative mx-auto w-full max-w-[380px]" style={{ animation: 'panelIn 1.2s .2s ease both' }}>
+          <div className="arch absolute -inset-3 border border-accent/40" aria-hidden="true" />
+          <div className="arch absolute -inset-6 border border-ink/[.06]" aria-hidden="true" />
+          <div className="group arch relative aspect-[4/5] overflow-hidden border border-ink/10 bg-surface">
+            <picture>
+              <source srcSet="/assets/heni-real-photo.webp" type="image/webp" />
+              <img src="/assets/heni-real-photo.png" alt="Heni Mechi, Senior Full-Stack Developer" width={1122} height={1402} fetchPriority="high" className="h-full w-full object-cover object-[50%_20%] grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" />
+            </picture>
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-night via-night/40 to-transparent" />
+            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3 rounded-2xl border border-ink/10 bg-night/70 px-4 py-3 backdrop-blur-md">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[.16em] text-muted">Based in</p>
+                <p className="text-sm font-semibold">Sousse, TN <span className="text-muted">→</span> Remote / France</p>
+              </div>
+              <span className="pulse-dot h-2.5 w-2.5 shrink-0 rounded-full bg-accent" />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="shell grid grid-cols-2 border-y border-ink/15 lg:grid-cols-4">
-        {portfolio.stats.map(([value, label], i) => (
-          <div key={label} data-reveal className={`px-4 py-8 md:px-6 ${i % 2 ? 'border-l' : ''} ${i === 2 ? 'border-t lg:border-l lg:border-t-0' : ''} ${i === 3 ? 'border-t lg:border-t-0' : ''} border-ink/15`}>
-            <strong className="block font-display text-[clamp(2.4rem,4.5vw,3.6rem)] font-light leading-none tracking-[-.03em] text-azur">{value}</strong>
-            <span className="mt-3 block max-w-[24ch] font-mono text-[10px] uppercase leading-5 tracking-[.12em] text-muted">{label}</span>
+      <div className="shell relative grid grid-cols-2 gap-3 lg:grid-cols-4">
+        {portfolio.stats.map(([value, label]) => (
+          <div key={label} data-reveal data-spot className="spot card p-6">
+            <CountUp value={value} className="block text-[clamp(2.2rem,4vw,3.2rem)] font-semibold leading-none tracking-[-.05em]" />
+            <span className="mt-3 block text-[13px] leading-5 text-muted">{label}</span>
           </div>
         ))}
       </div>
 
-      <div className="shell py-10">
-        <p className="kicker text-center !text-muted">They trusted the work</p>
-        <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 font-display text-[clamp(1.2rem,2.2vw,1.7rem)] italic">
-          {portfolio.brands.map((brand, i) => (
-            <li key={brand} className="flex items-center gap-5">
-              {i > 0 && <Khatam filled className="h-3 w-3 text-clay" />}
-              <span>{brand}</span>
-            </li>
+      <div className="shell relative py-16">
+        <p className="text-center font-mono text-[11px] uppercase tracking-[.18em] text-muted">Trusted by teams at</p>
+        <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+          {portfolio.brands.map(brand => (
+            <li key={brand} className="text-[clamp(1.05rem,1.8vw,1.35rem)] font-semibold tracking-[-.03em] text-ink/35 transition hover:text-ink">{brand}</li>
           ))}
         </ul>
       </div>

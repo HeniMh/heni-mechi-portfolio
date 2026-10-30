@@ -7,12 +7,12 @@ import { validateContactForm, hasFieldErrors, type ContactField, type FieldError
 type Status = { type: 'idle' | 'loading' | 'success' | 'error'; message: string };
 
 const inputClass = (invalid: boolean) =>
-  `w-full border-0 border-b bg-transparent px-0 py-3 font-display text-xl normal-case tracking-normal text-ink outline-none transition placeholder:text-ink/30 ${
-    invalid ? 'border-clay' : 'border-ink/30 focus:border-azur'
+  `w-full rounded-xl border bg-night/60 px-4 py-3.5 text-[15px] normal-case tracking-normal text-ink outline-none transition placeholder:text-ink/25 focus:ring-4 focus:ring-accent/10 ${
+    invalid ? 'border-accent' : 'border-ink/10 focus:border-accent/60'
   }`;
 
-const labelClass = 'grid gap-1 font-mono text-[10px] uppercase tracking-[.16em] text-muted';
-const errorClass = 'font-mono text-[11px] normal-case tracking-normal text-clay';
+const labelClass = 'grid gap-2 font-mono text-[11px] uppercase tracking-[.14em] text-muted';
+const errorClass = 'font-mono text-[11px] normal-case tracking-normal text-accent';
 
 const channels = [
   { href: `mailto:${portfolio.email}`, label: 'Email', value: portfolio.email, icon: 'mail' as const, external: false },
@@ -100,23 +100,23 @@ export function Contact() {
     <>
       <section id="contact" className="shell grid gap-14 py-24 md:py-32 lg:grid-cols-2 lg:gap-20">
         <div data-reveal>
-          <p className="kicker">§ 05 — Contact</p>
-          <h2 className="chapter-title mt-6">Tell me what you are <em>building.</em></h2>
-          <p className="mt-8 max-w-[44ch] leading-8 text-ink/70">Available for full-stack freelance missions and senior roles — remote, or on-site in France.</p>
-          <dl className="mt-12 border-t border-ink/15">
+          <p className="eyebrow">05 — Contact</p>
+          <h2 className="title mt-5">Tell me what <span className="title-dim">you are building.</span></h2>
+          <p className="mt-8 max-w-[44ch] leading-8 text-muted">Available for full-stack freelance missions and senior roles — remote, or on-site in France.</p>
+          <dl className="mt-12 border-t border-ink/[.08]">
             {channels.map(channel => (
-              <div key={channel.label} className="grid grid-cols-[6.5rem_1fr] items-baseline gap-2 border-b border-ink/15 py-4">
+              <div key={channel.label} className="grid grid-cols-[6.5rem_1fr] items-baseline gap-2 border-b border-ink/[.08] py-4">
                 <dt className="font-mono text-[10px] uppercase tracking-[.16em] text-muted">{channel.label}</dt>
                 <dd className="min-w-0">
-                  <a href={channel.href} {...(channel.external ? externalProps : {})} className="break-words font-display text-lg transition hover:italic hover:text-azur">{channel.value}</a>
+                  <a href={channel.href} {...(channel.external ? externalProps : {})} className="break-words text-[17px] font-medium tracking-[-.02em] transition hover:text-accent">{channel.value}</a>
                 </dd>
               </div>
             ))}
           </dl>
         </div>
 
-        <form data-reveal onSubmit={onSubmit} noValidate className="grid content-start gap-8 border border-ink/15 bg-paper2 p-6 md:p-10" aria-label="Contact form">
-          <p className="font-mono text-[10px] uppercase tracking-[.16em] text-azur">Send a message</p>
+        <form data-reveal onSubmit={onSubmit} noValidate className="grid content-start gap-8 spot card p-6 md:p-9" data-spot="" aria-label="Contact form">
+          <p className="font-mono text-[10px] uppercase tracking-[.16em] text-accent">Send a message</p>
 
           <label className={labelClass}>
             Name
@@ -136,16 +136,16 @@ export function Contact() {
             {showError('message') && <span id="message-error" className={errorClass}>{fieldErrors.message}</span>}
           </label>
 
-          <button type="submit" disabled={status.type === 'loading'} className="btn-solid justify-center disabled:opacity-50">
+          <button type="submit" disabled={status.type === 'loading'} className="btn-primary justify-center disabled:opacity-50">
             {status.type === 'loading' ? 'Sending...' : 'Send message'} <Icon name="arrow" className="h-4 w-4" />
           </button>
-          <p role="status" aria-live="polite" className={`font-mono text-xs ${status.type === 'success' ? 'text-azur' : status.type === 'error' ? 'text-clay' : 'text-muted'}`}>{status.message}</p>
+          <p role="status" aria-live="polite" className={`font-mono text-xs ${status.type === 'success' ? 'text-accent' : status.type === 'error' ? 'text-accent' : 'text-muted'}`}>{status.message}</p>
         </form>
       </section>
 
       <aside className="fixed bottom-5 right-5 z-[90] w-[min(400px,calc(100%-40px))] md:bottom-6 md:right-6" aria-label="Contact information">
         {!open && (
-          <button type="button" onClick={() => setOpen(true)} className="group ml-auto flex items-center gap-3 bg-ink px-5 py-3.5 font-mono text-[11px] uppercase tracking-[.14em] text-paper shadow-[5px_5px_0_rgb(var(--clay))] transition hover:-translate-y-0.5 hover:shadow-[7px_7px_0_rgb(var(--clay))]" aria-expanded="false" aria-controls="contact-panel">
+          <button type="button" onClick={() => setOpen(true)} className="group ml-auto flex items-center gap-3 rounded-full border border-ink/10 bg-raised/90 px-5 py-3 text-sm font-semibold text-ink shadow-[0_20px_50px_rgb(0_0_0/.5)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:border-accent/50" aria-expanded="false" aria-controls="contact-panel">
             <Icon name="mail" className="h-4 w-4" />
             Contact me
             <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -153,21 +153,21 @@ export function Contact() {
         )}
 
         {open && (
-          <div id="contact-panel" className="animate-[panelIn_.3s_ease-out_both] border border-ink/20 bg-paper text-ink shadow-[7px_7px_0_rgb(var(--clay))]">
-            <div className="flex items-center justify-between bg-azur px-5 py-4 text-paper">
+          <div id="contact-panel" className="animate-[panelIn_.3s_ease-out_both] rounded-3xl border border-ink/10 bg-raised/95 text-ink shadow-[0_30px_80px_rgb(0_0_0/.6)] backdrop-blur-xl">
+            <div className="flex items-center justify-between border-b border-ink/[.08] px-5 py-4">
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-[.16em] text-paper/75">§ 05 / Contact</span>
-                <p className="mt-1 font-display text-xl italic">Let’s build something useful.</p>
+                <span className="font-mono text-[10px] uppercase tracking-[.16em] text-accent">05 / Contact</span>
+                <p className="mt-1 text-lg font-semibold tracking-[-.03em]">Let’s build something useful.</p>
               </div>
-              <button type="button" onClick={() => setOpen(false)} className="grid h-9 w-9 place-items-center border border-paper/30 text-paper transition hover:bg-paper/10" aria-label="Close contact panel" aria-expanded="true" aria-controls="contact-panel"><Icon name="x" className="h-4 w-4" /></button>
+              <button type="button" onClick={() => setOpen(false)} className="grid h-9 w-9 place-items-center rounded-full border border-ink/10 text-muted transition hover:bg-ink/5 hover:text-ink" aria-label="Close contact panel" aria-expanded="true" aria-controls="contact-panel"><Icon name="x" className="h-4 w-4" /></button>
             </div>
             <div className="max-h-[min(70vh,560px)] overflow-y-auto px-5 py-4">
               <p className="font-mono text-[10px] uppercase leading-5 tracking-[.14em] text-muted">Available for full-stack freelance missions and senior roles.</p>
               <ul className="mt-2">
                 {channels.map(channel => (
                   <li key={channel.label} className="border-b border-ink/10 last:border-0">
-                    <a href={channel.href} {...(channel.external ? externalProps : {})} className="flex items-center gap-3 py-3 text-sm transition hover:text-azur">
-                      <Icon name={channel.icon} className="h-4 w-4 shrink-0 text-clay" />
+                    <a href={channel.href} {...(channel.external ? externalProps : {})} className="flex items-center gap-3 py-3 text-sm transition hover:text-accent">
+                      <Icon name={channel.icon} className="h-4 w-4 shrink-0 text-accent" />
                       <span className="font-mono text-[10px] uppercase tracking-[.14em] text-muted">{channel.label}</span>
                       <span className="ml-auto truncate">{channel.value}</span>
                     </a>

@@ -8,19 +8,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: token('paper'),
-        paper2: token('paper-2'),
+        night: token('base'),
+        surface: token('surface'),
+        raised: token('raised'),
         ink: token('ink'),
         muted: token('muted'),
-        azur: token('azur'),
-        clay: token('clay')
+        accent: token('accent')
       },
       fontFamily: {
-        sans: ['"Instrument Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['Fraunces', 'Georgia', '"Times New Roman"', 'serif'],
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
-      },
-      animation: { 'spin-slow': 'spin 40s linear infinite' }
+        sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+      }
     }
   },
   plugins: []

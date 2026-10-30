@@ -4,8 +4,8 @@
   "description": "Senior Full-Stack Developer: React, Next.js, Node.js and NestJS.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f2eadb",
-  "theme_color": "#1d4f91",
+  "background_color": "#07080a",
+  "theme_color": "#07080a",
   "lang": "en",
   "icons": [
     {
