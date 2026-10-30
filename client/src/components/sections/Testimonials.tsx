@@ -2,14 +2,14 @@ import { portfolio } from '@/data/portfolio';
 
 export function Testimonials() {
   return (
-    <section className="mx-auto w-[min(1180px,calc(100%-32px))] py-28">
-      <div data-reveal className="grid gap-5 lg:grid-cols-3">
+    <section className="border-y border-ink/15 bg-paper2">
+      <div className="shell grid lg:grid-cols-3">
         {portfolio.testimonials.map(([title, text], index) => (
-          <article key={title} className="rounded-[2rem] border border-black/10 bg-white/45 p-7 dark:border-white/10 dark:bg-white/[.035]">
-            <span className="text-[10px] font-extrabold uppercase tracking-[.15em] text-black/30 dark:text-white/30">Principle 0{index + 1}</span>
-            <h3 className="mt-8 text-2xl font-extrabold tracking-[-.03em] text-[#111318] dark:text-white">{title}</h3>
-            <p className="mt-4 text-sm font-medium leading-7 text-black/50 dark:text-white/50">{text}</p>
-          </article>
+          <figure key={title} data-reveal className={`py-14 lg:px-10 lg:py-20 ${index > 0 ? 'border-t border-ink/15 lg:border-l lg:border-t-0' : 'lg:pl-0'} ${index === 2 ? 'lg:pr-0' : ''}`}>
+            <span className="font-display text-6xl leading-none text-clay" aria-hidden="true">“</span>
+            <blockquote className="mt-2 font-display text-[1.35rem] italic leading-snug">{text}</blockquote>
+            <figcaption className="mt-6 font-mono text-[10px] uppercase tracking-[.14em] text-muted">Principle 0{index + 1} — {title}</figcaption>
+          </figure>
         ))}
       </div>
     </section>

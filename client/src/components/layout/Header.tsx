@@ -4,16 +4,27 @@ import { Icon } from '@/components/ui/Icon';
 import { Logo } from '@/components/ui/Logo';
 
 const links = [
-  ['#expertise', 'Expertise'],
-  ['#work', 'Work'],
-  ['#stack', 'Stack'],
-  ['#process', 'Process'],
-  ['#contact', 'Contact']
+  ['#expertise', '01', 'Expertise'],
+  ['#work', '02', 'Work'],
+  ['#stack', '03', 'Stack'],
+  ['#process', '04', 'Process'],
+  ['#contact', '05', 'Contact']
 ];
+
+function useSousseTime() {
+  const format = () => new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Africa/Tunis' }).format(new Date());
+  const [time, setTime] = useState(format);
+  useEffect(() => {
+    const timer = window.setInterval(() => setTime(format()), 30_000);
+    return () => window.clearInterval(timer);
+  }, []);
+  return time;
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(() => localStorage.getItem('hm-theme') !== 'light');
+  const time = useSousseTime();
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);
@@ -27,39 +38,53 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-[100] border-b border-black/5 bg-[#f5f2ea]/85 backdrop-blur-xl dark:border-white/10 dark:bg-[#0a0b0d]/80">
-        <div className="mx-auto flex h-[74px] w-[min(1180px,calc(100%-32px))] items-center justify-between gap-4">
+      <header className="fixed inset-x-0 top-0 z-[100] border-b border-ink/15 bg-paper/90 backdrop-blur-md">
+        <div className="hidden border-b border-ink/10 md:block">
+          <div className="shell flex h-8 items-center justify-between font-mono text-[10px] uppercase tracking-[.16em] text-muted">
+            <span>Sousse 35.82°N 10.63°E <span className="text-clay">↔</span> Paris 48.85°N 2.35°E</span>
+            <span><span className="mr-2 inline-block h-1.5 w-1.5 translate-y-[-1px] rounded-full bg-clay" />Sousse, {time} · available for missions</span>
+          </div>
+        </div>
+        <div className="shell flex h-16 items-center justify-between gap-4">
           <a href="#home" className="group flex items-center gap-3" aria-label="Go to homepage">
             <Logo />
             <span className="leading-tight">
-              <strong className="block text-sm font-extrabold tracking-tight text-[#111318] dark:text-white">{portfolio.name}</strong>
-              <span className="hidden text-[10px] font-bold uppercase tracking-[.14em] text-black/45 dark:text-white/45 sm:block">Senior Full-Stack Developer</span>
+              <strong className="block font-display text-lg font-medium tracking-tight">{portfolio.name}</strong>
+              <span className="hidden font-mono text-[10px] uppercase tracking-[.14em] text-muted sm:block">{portfolio.role}</span>
             </span>
           </a>
 
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
-            {links.map(([href, label]) => (
-              <a key={href} href={href} className="rounded-full px-4 py-2 text-sm font-bold text-black/60 transition hover:bg-black/5 hover:text-black dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white">{label}</a>
+          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
+            {links.map(([href, num, label]) => (
+              <a key={href} href={href} className="group font-mono text-[11px] uppercase tracking-[.14em] text-muted transition hover:text-ink">
+                <span className="mr-1.5 text-clay">{num}</span>
+                <span className="border-b border-transparent pb-0.5 group-hover:border-ink">{label}</span>
+              </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <button type="button" onClick={() => setDark(v => !v)} className="grid h-10 w-10 place-items-center rounded-full border border-black/10 bg-white/60 text-black transition hover:scale-105 dark:border-white/10 dark:bg-white/5 dark:text-white" aria-label="Toggle dark mode">
-              <Icon name={dark ? 'sun' : 'moon'} className="h-4 w-4" />
+          <div className="flex items-center gap-3">
+            <button type="button" onClick={() => setDark(v => !v)} className="flex h-9 items-center gap-2 border border-ink/20 px-3 font-mono text-[10px] uppercase tracking-[.14em] text-ink transition hover:border-ink" aria-label="Toggle dark mode">
+              <Icon name={dark ? 'sun' : 'moon'} className="h-3.5 w-3.5" />
+              <span className="hidden sm:inline">{dark ? 'Day' : 'Night'}</span>
             </button>
-            <a href="#contact" className="hidden rounded-full bg-[#111318] px-5 py-2.5 text-sm font-extrabold text-white transition hover:-translate-y-0.5 dark:bg-[#d9ff63] dark:text-black md:inline-flex">Let’s work together</a>
-            <button type="button" onClick={() => setOpen(v => !v)} className="grid h-10 w-10 place-items-center rounded-full border border-black/10 bg-white/60 text-black dark:border-white/10 dark:bg-white/5 dark:text-white lg:hidden" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
-              <Icon name={open ? 'x' : 'menu'} className="h-5 w-5" />
+            <button type="button" onClick={() => setOpen(v => !v)} className="grid h-9 w-9 place-items-center border border-ink/20 text-ink lg:hidden" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
+              <Icon name={open ? 'x' : 'menu'} className="h-4 w-4" />
             </button>
           </div>
         </div>
       </header>
 
-      <div className={`fixed inset-0 z-40 bg-black/35 backdrop-blur-sm transition lg:hidden ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`} onClick={() => setOpen(false)} />
-      <nav className={`fixed left-4 right-4 top-[86px] z-50 grid gap-1 rounded-3xl border border-black/10 bg-[#f5f2ea] p-3 shadow-2xl transition duration-300 dark:border-white/10 dark:bg-[#111318] lg:hidden ${open ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-3 opacity-0'}`} aria-label="Mobile navigation">
-        {links.map(([href, label]) => (
-          <a key={href} href={href} onClick={() => setOpen(false)} className="rounded-2xl px-5 py-4 text-center text-base font-extrabold text-[#111318] hover:bg-black/5 dark:text-white dark:hover:bg-white/10">{label}</a>
-        ))}
+      <div className={`fixed inset-0 z-40 bg-ink/30 transition lg:hidden ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`} onClick={() => setOpen(false)} />
+      <nav className={`fixed inset-x-0 top-16 md:top-24 z-50 border-b border-ink/15 bg-paper transition duration-300 lg:hidden ${open ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-3 opacity-0'}`} aria-label="Mobile navigation">
+        <div className="shell py-4">
+          {links.map(([href, num, label]) => (
+            <a key={href} href={href} onClick={() => setOpen(false)} className="flex items-baseline gap-4 border-b border-ink/10 py-4 last:border-0">
+              <span className="font-mono text-xs text-clay">{num}</span>
+              <span className="font-display text-3xl">{label}</span>
+            </a>
+          ))}
+        </div>
       </nav>
     </>
   );

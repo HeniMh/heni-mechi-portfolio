@@ -7,11 +7,21 @@ import { validateContactForm, hasFieldErrors, type ContactField, type FieldError
 type Status = { type: 'idle' | 'loading' | 'success' | 'error'; message: string };
 
 const inputClass = (invalid: boolean) =>
-  `rounded-2xl border bg-white/55 px-4 py-4 text-sm font-semibold text-[#111318] outline-none transition placeholder:text-black/30 focus:bg-white dark:bg-white/[.04] dark:text-white dark:placeholder:text-white/25 ${
-    invalid
-      ? 'border-red-400 focus:border-red-400'
-      : 'border-black/10 focus:border-black/30 dark:border-white/10 dark:focus:border-[#d9ff63]/60'
+  `w-full border-0 border-b bg-transparent px-0 py-3 font-display text-xl normal-case tracking-normal text-ink outline-none transition placeholder:text-ink/30 ${
+    invalid ? 'border-clay' : 'border-ink/30 focus:border-azur'
   }`;
+
+const labelClass = 'grid gap-1 font-mono text-[10px] uppercase tracking-[.16em] text-muted';
+const errorClass = 'font-mono text-[11px] normal-case tracking-normal text-clay';
+
+const channels = [
+  { href: `mailto:${portfolio.email}`, label: 'Email', value: portfolio.email, icon: 'mail' as const, external: false },
+  { href: `tel:${portfolio.phone}`, label: 'Phone', value: portfolio.phone, icon: 'phone' as const, external: false },
+  { href: `https://wa.me/${portfolio.whatsapp.replace(/\D/g, '')}`, label: 'WhatsApp', value: portfolio.whatsapp, icon: 'phone' as const, external: true },
+  { href: portfolio.linkedinUrl, label: 'LinkedIn', value: portfolio.linkedin, icon: 'linkedin' as const, external: true }
+];
+
+const externalProps = { target: '_blank', rel: 'noopener noreferrer' };
 
 export function Contact() {
   const [open, setOpen] = useState(false);
@@ -88,75 +98,85 @@ export function Contact() {
 
   return (
     <>
-      <section id="contact" className="mx-auto w-[min(760px,calc(100%-32px))] py-28">
-        <div data-reveal className="overflow-hidden rounded-[2.4rem] border border-black/10 bg-white/40 dark:border-white/10 dark:bg-white/[.03]">
-        <form onSubmit={onSubmit} noValidate className="grid gap-4 p-6 md:p-10" aria-label="Contact form">
-          <div className="mb-2">
-            <span className="text-[10px] font-extrabold uppercase tracking-[.16em] text-black/35 dark:text-white/35">Send a message</span>
-            <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight tracking-[-.03em] text-[#111318] dark:text-white">Tell me what you are building.</h2>
-            <p className="mt-2 text-sm font-medium text-black/45 dark:text-white/45">Share the project, mission or opportunity.</p>
-          </div>
+      <section id="contact" className="shell grid gap-14 py-24 md:py-32 lg:grid-cols-2 lg:gap-20">
+        <div data-reveal>
+          <p className="kicker">§ 05 — Contact</p>
+          <h2 className="chapter-title mt-6">Tell me what you are <em>building.</em></h2>
+          <p className="mt-8 max-w-[44ch] leading-8 text-ink/70">Available for full-stack freelance missions and senior roles — remote, or on-site in France.</p>
+          <dl className="mt-12 border-t border-ink/15">
+            {channels.map(channel => (
+              <div key={channel.label} className="grid grid-cols-[6.5rem_1fr] items-baseline gap-2 border-b border-ink/15 py-4">
+                <dt className="font-mono text-[10px] uppercase tracking-[.16em] text-muted">{channel.label}</dt>
+                <dd className="min-w-0">
+                  <a href={channel.href} {...(channel.external ? externalProps : {})} className="break-words font-display text-lg transition hover:italic hover:text-azur">{channel.value}</a>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
 
-          <label className="grid gap-2 text-xs font-extrabold uppercase tracking-[.08em] text-black/55 dark:text-white/55">
+        <form data-reveal onSubmit={onSubmit} noValidate className="grid content-start gap-8 border border-ink/15 bg-paper2 p-6 md:p-10" aria-label="Contact form">
+          <p className="font-mono text-[10px] uppercase tracking-[.16em] text-azur">Send a message</p>
+
+          <label className={labelClass}>
             Name
             <input name="name" minLength={2} maxLength={80} autoComplete="name" placeholder="Your name" aria-invalid={Boolean(showError('name'))} aria-describedby={showError('name') ? 'name-error' : undefined} onBlur={(e) => { setTouched((t) => ({ ...t, name: true })); validateField('name', e.currentTarget.form!); }} className={inputClass(Boolean(showError('name')))} />
-            {showError('name') && <span id="name-error" className="text-xs font-bold normal-case tracking-normal text-red-600 dark:text-red-400">{fieldErrors.name}</span>}
+            {showError('name') && <span id="name-error" className={errorClass}>{fieldErrors.name}</span>}
           </label>
 
-          <label className="grid gap-2 text-xs font-extrabold uppercase tracking-[.08em] text-black/55 dark:text-white/55">
+          <label className={labelClass}>
             Email
             <input name="email" type="email" autoComplete="email" placeholder="your@email.com" aria-invalid={Boolean(showError('email'))} aria-describedby={showError('email') ? 'email-error' : undefined} onBlur={(e) => { setTouched((t) => ({ ...t, email: true })); validateField('email', e.currentTarget.form!); }} className={inputClass(Boolean(showError('email')))} />
-            {showError('email') && <span id="email-error" className="text-xs font-bold normal-case tracking-normal text-red-600 dark:text-red-400">{fieldErrors.email}</span>}
+            {showError('email') && <span id="email-error" className={errorClass}>{fieldErrors.email}</span>}
           </label>
 
-          <label className="grid gap-2 text-xs font-extrabold uppercase tracking-[.08em] text-black/55 dark:text-white/55">
+          <label className={labelClass}>
             Message
-            <textarea name="message" rows={5} minLength={10} maxLength={3000} placeholder="Project, mission, stack, timeline..." aria-invalid={Boolean(showError('message'))} aria-describedby={showError('message') ? 'message-error' : undefined} onBlur={(e) => { setTouched((t) => ({ ...t, message: true })); validateField('message', e.currentTarget.form!); }} className={`resize-y ${inputClass(Boolean(showError('message')))}`} />
-            {showError('message') && <span id="message-error" className="text-xs font-bold normal-case tracking-normal text-red-600 dark:text-red-400">{fieldErrors.message}</span>}
+            <textarea name="message" rows={4} minLength={10} maxLength={3000} placeholder="Project, mission, stack, timeline..." aria-invalid={Boolean(showError('message'))} aria-describedby={showError('message') ? 'message-error' : undefined} onBlur={(e) => { setTouched((t) => ({ ...t, message: true })); validateField('message', e.currentTarget.form!); }} className={`resize-y ${inputClass(Boolean(showError('message')))}`} />
+            {showError('message') && <span id="message-error" className={errorClass}>{fieldErrors.message}</span>}
           </label>
 
-          <button type="submit" disabled={status.type === 'loading'} className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#111318] px-6 py-4 text-sm font-extrabold text-white transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-[#d9ff63] dark:text-black">
+          <button type="submit" disabled={status.type === 'loading'} className="btn-solid justify-center disabled:opacity-50">
             {status.type === 'loading' ? 'Sending...' : 'Send message'} <Icon name="arrow" className="h-4 w-4" />
           </button>
-          <p role="status" aria-live="polite" className={`text-sm font-bold ${status.type === 'success' ? 'text-emerald-600' : status.type === 'error' ? 'text-orange-600' : 'text-black/35 dark:text-white/35'}`}>{status.message}</p>
+          <p role="status" aria-live="polite" className={`font-mono text-xs ${status.type === 'success' ? 'text-azur' : status.type === 'error' ? 'text-clay' : 'text-muted'}`}>{status.message}</p>
         </form>
-        </div>
       </section>
 
-      <aside className="fixed bottom-5 right-5 z-[90] w-[min(430px,calc(100%-32px))] md:bottom-6 md:right-6" aria-label="Contact information">
-      {!open && (
-        <button type="button" onClick={() => setOpen(true)} className="contact-pulse group ml-auto flex items-center gap-3 rounded-full border border-black/10 bg-[#d9ff63] px-5 py-3.5 text-sm font-extrabold text-black shadow-[0_18px_45px_rgba(0,0,0,.2)] transition hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(0,0,0,.28)] dark:border-white/10" aria-expanded="false" aria-controls="contact-panel">
-          <span className="grid h-7 w-7 place-items-center rounded-full bg-black text-[#d9ff63]"><Icon name="mail" className="h-3.5 w-3.5" /></span>
-          Contact me
-          <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
-        </button>
-      )}
+      <aside className="fixed bottom-5 right-5 z-[90] w-[min(400px,calc(100%-40px))] md:bottom-6 md:right-6" aria-label="Contact information">
+        {!open && (
+          <button type="button" onClick={() => setOpen(true)} className="group ml-auto flex items-center gap-3 bg-ink px-5 py-3.5 font-mono text-[11px] uppercase tracking-[.14em] text-paper shadow-[5px_5px_0_rgb(var(--clay))] transition hover:-translate-y-0.5 hover:shadow-[7px_7px_0_rgb(var(--clay))]" aria-expanded="false" aria-controls="contact-panel">
+            <Icon name="mail" className="h-4 w-4" />
+            Contact me
+            <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
+          </button>
+        )}
 
-      {open && <div id="contact-panel" className="animate-[contactPanelIn_.25s_ease-out_both] overflow-hidden rounded-[2rem] border border-white/15 bg-[#111318]/95 text-white shadow-[0_24px_80px_rgba(0,0,0,.4)] backdrop-blur-2xl">
-        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-          <div>
-            <span className="text-[10px] font-extrabold uppercase tracking-[.18em] text-[#d9ff63]">05 / Contact</span>
-            <p className="mt-1 text-sm font-extrabold">Let’s build something useful.</p>
+        {open && (
+          <div id="contact-panel" className="animate-[panelIn_.3s_ease-out_both] border border-ink/20 bg-paper text-ink shadow-[7px_7px_0_rgb(var(--clay))]">
+            <div className="flex items-center justify-between bg-azur px-5 py-4 text-paper">
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-[.16em] text-paper/75">§ 05 / Contact</span>
+                <p className="mt-1 font-display text-xl italic">Let’s build something useful.</p>
+              </div>
+              <button type="button" onClick={() => setOpen(false)} className="grid h-9 w-9 place-items-center border border-paper/30 text-paper transition hover:bg-paper/10" aria-label="Close contact panel" aria-expanded="true" aria-controls="contact-panel"><Icon name="x" className="h-4 w-4" /></button>
+            </div>
+            <div className="max-h-[min(70vh,560px)] overflow-y-auto px-5 py-4">
+              <p className="font-mono text-[10px] uppercase leading-5 tracking-[.14em] text-muted">Available for full-stack freelance missions and senior roles.</p>
+              <ul className="mt-2">
+                {channels.map(channel => (
+                  <li key={channel.label} className="border-b border-ink/10 last:border-0">
+                    <a href={channel.href} {...(channel.external ? externalProps : {})} className="flex items-center gap-3 py-3 text-sm transition hover:text-azur">
+                      <Icon name={channel.icon} className="h-4 w-4 shrink-0 text-clay" />
+                      <span className="font-mono text-[10px] uppercase tracking-[.14em] text-muted">{channel.label}</span>
+                      <span className="ml-auto truncate">{channel.value}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <button type="button" onClick={() => setOpen(false)} className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-white/60 transition hover:bg-white/10 hover:text-white" aria-label="Close contact panel" aria-expanded="true" aria-controls="contact-panel"><Icon name="x" className="h-4 w-4" /></button>
-        </div>
-
-        <div className="max-h-[min(76vh,680px)] overflow-y-auto">
-        <div className="relative bg-[#111318] px-5 pb-5 pt-6 text-white">
-          <div className="absolute right-0 top-0 h-52 w-52 bg-[#d9ff63]/10 blur-3xl" />
-          <h2 className="relative max-w-md font-display text-2xl font-extrabold leading-[1.02] tracking-[-.03em]">Let’s connect.</h2>
-          <p className="relative mt-3 max-w-md text-xs font-medium leading-6 text-white/50">Available for full-stack freelance missions and senior roles.</p>
-
-          <div className="relative mt-5 grid gap-2">
-            <a href={`mailto:${portfolio.email}`} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[.04] p-3 text-xs font-bold text-white/75 transition hover:bg-white/[.08] hover:text-white"><Icon name="mail" className="h-4 w-4 text-[#d9ff63]" />{portfolio.email}</a>
-            <a href={`tel:${portfolio.phone}`} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[.04] p-3 text-xs font-bold text-white/75 transition hover:bg-white/[.08] hover:text-white"><Icon name="phone" className="h-4 w-4 text-[#d9ff63]" />{portfolio.phone}</a>
-            <a href={`https://wa.me/${portfolio.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[.04] p-3 text-xs font-bold text-white/75 transition hover:bg-white/[.08] hover:text-white"><Icon name="phone" className="h-4 w-4 text-[#d9ff63]" /><span>WhatsApp · {portfolio.whatsapp}</span></a>
-            <a href={portfolio.linkedinUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[.04] p-3 text-xs font-bold text-white/75 transition hover:bg-white/[.08] hover:text-white"><Icon name="linkedin" className="h-4 w-4 text-[#d9ff63]" />LinkedIn · {portfolio.linkedin}</a>
-          </div>
-        </div>
-
-        </div>
-      </div>}
+        )}
       </aside>
     </>
   );
