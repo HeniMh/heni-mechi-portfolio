@@ -1,47 +1,69 @@
+import { useState } from 'react';
 import { portfolio } from '@/data/portfolio';
+import { Icon } from '@/components/ui/Icon';
 
 export function Projects() {
-  const total = String(portfolio.projects.length).padStart(2, '0');
+  const [active, setActive] = useState(0);
 
   return (
-    <section id="work" className="relative border-y border-ink/[.06] bg-surface/40 py-24 md:py-32">
+    <section id="work" className="bg-paper2 py-24 md:py-32">
       <div className="shell">
-        <div data-reveal className="grid gap-6 lg:grid-cols-[1fr_.8fr] lg:items-end">
+        <div data-reveal className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p className="eyebrow">02 — Selected work</p>
-            <h2 className="title mt-5">Production platforms, <span className="title-dim">2019 → 2026.</span></h2>
+            <p className="kicker">§ 02 — Selected work</p>
+            <h2 className="chapter-title mt-6 max-w-[16ch]">An index of <em>production</em> platforms.</h2>
           </div>
-          <p className="max-w-[50ch] leading-7 text-muted lg:justify-self-end">Hospitality, culture, e-commerce, insurance and logistics — at Symdrik, then as a freelancer.</p>
+          <p className="max-w-[40ch] font-mono text-[11px] uppercase leading-6 tracking-[.12em] text-muted">
+            2019 → 2026 · Symdrik, then freelance.<br />Hospitality, culture, commerce, insurance and logistics.
+          </p>
         </div>
 
-        <div className="mt-14 grid gap-6">
-          {portfolio.projects.map((project, index) => (
-            <article
-              key={project.title}
-              data-spot
-              className="spot card grid gap-8 overflow-hidden p-4 md:sticky md:grid-cols-[1.15fr_1fr] md:p-5 md:shadow-[0_-30px_60px_rgb(0_0_0/.55)]"
-              style={{ top: `${96 + index * 18}px` }}
-            >
-              <div className="group relative overflow-hidden rounded-2xl border border-ink/[.06] bg-raised">
-                <img src={project.image} alt={`${project.title} — project screenshot`} width={900} height={560} loading="lazy" className="aspect-[16/10] h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
-              </div>
-              <div className="flex flex-col justify-between gap-8 px-2 pb-3 md:py-4 md:pr-4">
-                <div className="flex items-center justify-between font-mono text-xs text-muted">
-                  <span><span className="text-accent">{String(index + 1).padStart(2, '0')}</span> / {total}</span>
-                  <span>{project.period}</span>
-                </div>
-                <div>
-                  <p className="text-sm text-muted">{project.role} · {project.place}</p>
-                  <h3 className="mt-2 text-[clamp(1.8rem,3.4vw,2.8rem)] font-semibold leading-[1] tracking-[-.05em]">{project.title}</h3>
-                  <p className="mt-5 text-[15px] leading-7 text-ink/70">{project.description}</p>
-                </div>
-                <ul className="flex flex-wrap gap-2">
-                  {project.tags.map(tag => <li key={tag} className="chip">{tag}</li>)}
-                </ul>
-              </div>
-            </article>
-          ))}
+        <div className="mt-14 hidden grid-cols-[3rem_1.4fr_1fr_.8fr_2.5rem] gap-4 border-b border-ink/30 pb-3 font-mono text-[10px] uppercase tracking-[.14em] text-muted md:grid">
+          <span>No.</span><span>Client</span><span>Role</span><span>Years</span><span />
         </div>
+
+        <ul data-reveal className="border-t border-ink/30 md:border-t-0">
+          {portfolio.projects.map((project, index) => {
+            const isOpen = active === index;
+            const panelId = `project-panel-${index}`;
+            return (
+              <li key={project.title} className="border-b border-ink/15">
+                <button
+                  type="button"
+                  onClick={() => setActive(isOpen ? -1 : index)}
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  className="group grid w-full grid-cols-[2.5rem_1fr_2rem] items-baseline gap-4 py-6 text-left md:grid-cols-[3rem_1.4fr_1fr_.8fr_2.5rem]"
+                >
+                  <span className="font-mono text-xs text-clay">{String(index + 1).padStart(2, '0')}</span>
+                  <span className={`font-display text-[clamp(1.6rem,3.4vw,2.7rem)] leading-none tracking-[-.02em] transition ${isOpen ? 'italic text-azur' : 'group-hover:italic'}`}>{project.title}</span>
+                  <span className="hidden text-sm text-ink/70 md:block">{project.role}</span>
+                  <span className="hidden font-mono text-xs text-muted md:block">{project.period}</span>
+                  <span className={`grid h-8 w-8 place-items-center border border-ink/20 transition ${isOpen ? 'rotate-90 border-azur bg-azur text-paper' : 'group-hover:border-ink'}`}>
+                    <Icon name="arrow" className="h-3.5 w-3.5" />
+                  </span>
+                </button>
+
+                <div id={panelId} role="region" aria-label={project.title} hidden={!isOpen} className="pb-10">
+                  <div className="grid gap-8 md:grid-cols-[3rem_1fr_1fr] md:gap-4">
+                    <span className="hidden md:block" />
+                    <div className="animate-[panelIn_.5s_ease_both] border border-ink/15 bg-paper p-2">
+                      <img src={project.image} alt={`${project.title} — project screenshot`} width={900} height={520} loading="lazy" className="aspect-[16/10] w-full object-cover" />
+                    </div>
+                    <div className="animate-[panelIn_.6s_ease_both] md:pl-8">
+                      <p className="font-mono text-[10px] uppercase tracking-[.14em] text-muted md:hidden">{project.role} · {project.period}</p>
+                      <p className="font-mono text-[10px] uppercase tracking-[.14em] text-muted">{project.place}</p>
+                      <p className="mt-4 text-[1.02rem] leading-8 text-ink/80">{project.description}</p>
+                      <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2 font-mono text-[11px] text-azur">
+                        {project.tags.map(tag => <li key={tag}>/{tag.toLowerCase().replace(/\s+/g, '-')}</li>)}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

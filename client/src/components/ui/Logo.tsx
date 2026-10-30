@@ -1,8 +1,10 @@
+import { Khatam } from '@/components/ui/Ornaments';
+
 export function Logo({ className = '' }: { className?: string }) {
   return (
-    <span className={`relative grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-ink/10 bg-raised transition duration-500 group-hover:border-accent/60 ${className}`} aria-hidden="true">
-      <span className="text-[13px] font-bold tracking-[-.06em]">HM</span>
-      <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-accent" />
+    <span className={`relative grid h-10 w-10 shrink-0 place-items-center text-azur transition-transform duration-700 group-hover:rotate-45 ${className}`} aria-hidden="true">
+      <Khatam className="absolute inset-0 h-10 w-10" />
+      <span className="font-display text-[13px] font-semibold italic tracking-tight text-ink">hm</span>
     </span>
   );
 }

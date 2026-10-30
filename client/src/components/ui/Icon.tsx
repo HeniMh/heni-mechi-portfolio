@@ -223,5 +223,5 @@ export function SkillIcon({ skill, className = '' }: { skill: string; className?
     return <BrandIcon className={`${className}${neutralClass}`} color={brand.color} aria-hidden="true" />;
   }
 
-  return <Icon name={skillIconNames[skill]} className={`${className} text-accent`} />;
+  return <Icon name={skillIconNames[skill]} className={`${className} text-[#d9ff63]`} />;
 }
