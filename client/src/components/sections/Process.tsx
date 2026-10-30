@@ -1,24 +1,24 @@
 import { portfolio } from '@/data/portfolio';
+import { SectionHeader } from '@/components/ui/SectionHeader';
 
 export function Process() {
   return (
-    <section id="process" className="bg-[#ebe7dc] py-28 dark:bg-[#0f1013]">
-      <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
-        <div data-reveal className="w-full text-center">
-          <span className="section-kicker">04 / Process</span>
-          <h2 className="section-title mx-auto mt-5">A disciplined workflow, even when AI makes everything faster.</h2>
-          <p className="mx-auto mt-5 w-full max-w-2xl text-base leading-8 text-black/70 dark:text-white/70">A clear, repeatable process keeps the work focused, testable and aligned with the product goal.</p>
-        </div>
-        <div className="mt-14 grid gap-px overflow-hidden rounded-[2rem] border border-black/10 bg-black/10 dark:border-white/10 dark:bg-white/10 lg:grid-cols-4">
-          {portfolio.process.map(([number, title, text]) => (
-            <article key={title} data-reveal className="min-h-[300px] bg-[#f5f2ea] p-6 dark:bg-[#111318]">
-              <span className="text-[11px] font-bold uppercase tracking-[.16em] text-black/70 dark:text-white/70">{number}</span>
-              <h3 className="mt-16 text-2xl font-bold tracking-[-.03em] text-[#111318] dark:text-white">{title}</h3>
-              <p className="mt-4 text-sm leading-7 text-black/70 dark:text-white/70">{text}</p>
-            </article>
-          ))}
-        </div>
-      </div>
+    <section id="process" className="section-shell">
+      <SectionHeader
+        index="04"
+        label="Process"
+        title="A disciplined workflow, from brief to production."
+        lead="A clear, repeatable process keeps the work focused, testable and aligned with the product goal."
+      />
+      <ol className="mt-14 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+        {portfolio.process.map(([number, title, text]) => (
+          <li key={title} data-reveal className="card group relative p-7 transition duration-300 hover:-translate-y-1 hover:border-black/20 dark:hover:border-white/20">
+            <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#111318] text-sm font-bold tabular-nums text-[#d9ff63] dark:bg-[#d9ff63] dark:text-[#111318]">{number}</span>
+            <h3 className="mt-8 text-xl font-bold tracking-[-.02em]">{title}</h3>
+            <p className="mt-3 text-[15px] leading-7 text-black/70 dark:text-white/70">{text}</p>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }

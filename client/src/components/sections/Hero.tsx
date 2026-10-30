@@ -37,11 +37,11 @@ export function Hero() {
             <span className="block text-[11px] font-bold uppercase tracking-[.15em] opacity-75">Currently building with</span>
             <strong className="mt-1 block text-sm font-bold">React · Next.js · Node.js · NestJS</strong>
           </div>
-          <div className="relative overflow-hidden rounded-[2.4rem] border border-black/10 bg-[#17191d] p-3 shadow-[0_40px_120px_rgba(0,0,0,.22)] dark:border-white/10">
+          <div className="relative overflow-hidden rounded-[1.6rem] border border-black/10 bg-[#17191d] p-3 shadow-[0_40px_120px_rgba(0,0,0,.22)] dark:border-white/10">
             <div className="absolute inset-x-0 top-0 z-10 h-28 bg-gradient-to-b from-black/25 to-transparent" />
             <picture>
               <source srcSet="/assets/heni-real-photo.webp" type="image/webp" />
-              <img src="/assets/heni-real-photo.png" alt="Heni Mechi — Senior Full-Stack Developer" width={1122} height={1402} className="aspect-[4/5] w-full rounded-[1.8rem] object-cover object-[50%_18%]" fetchPriority="high" />
+              <img src="/assets/heni-real-photo.png" alt="Heni Mechi — Senior Full-Stack Developer" width={1122} height={1402} className="aspect-[4/5] w-full rounded-[1.2rem] object-cover object-[50%_18%]" fetchPriority="high" />
             </picture>
             <div className="absolute inset-x-6 bottom-6 z-20 rounded-2xl border border-white/15 bg-black/55 p-4 text-white backdrop-blur-xl">
               <div className="flex items-center justify-between gap-4">

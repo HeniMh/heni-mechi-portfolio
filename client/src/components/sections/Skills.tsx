@@ -1,5 +1,6 @@
 import { portfolio } from '@/data/portfolio';
 import { SkillIcon } from '@/components/ui/Icon';
+import { SectionHeader } from '@/components/ui/SectionHeader';
 
 const groups = [
   { title: 'Frontend', match: ['React','Next.js','TypeScript','JavaScript','Redux Toolkit','React Query','Tailwind CSS','Sass','HTML5','CSS3'] },
@@ -12,14 +13,13 @@ const groups = [
 
 export function Skills() {
   return (
-    <section id="stack" className="mx-auto w-[min(1180px,calc(100%-32px))] py-28">
-      <div data-reveal className="w-full text-center">
-        <div className="mx-auto w-full">
-          <span className="section-kicker">03 / Stack</span>
-          <h2 className="section-title mx-auto mt-5">Full-stack, from React interfaces to NestJS APIs.</h2>
-        </div>
-        <p className="mx-auto mt-5 w-full max-w-2xl text-base leading-8 text-black/70 dark:text-white/70">React.js, Next.js and TypeScript on the front end; Node.js, Express.js and NestJS with PostgreSQL, MySQL and MongoDB on the back end — backed by tests, CI/CD and Docker.</p>
-      </div>
+    <section id="stack" className="section-shell">
+      <SectionHeader
+        index="03"
+        label="Stack"
+        title="Full-stack, from React interfaces to NestJS APIs."
+        lead="React.js, Next.js and TypeScript on the front end; Node.js, Express.js and NestJS with PostgreSQL, MySQL and MongoDB on the back end — backed by tests, CI/CD and Docker."
+      />
 
       <div className="mt-14 grid gap-3 lg:grid-cols-2">
         {groups.map((group, index) => (

@@ -24,7 +24,8 @@
 @layer components {
   .section-kicker { @apply inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/60 px-3 py-1 text-[11px] font-bold uppercase tracking-[.16em] text-black/60 dark:border-white/10 dark:bg-white/5 dark:text-white/65; }
   .section-title { @apply max-w-3xl font-display text-[clamp(2rem,3.4vw,3.2rem)] font-bold leading-[1.08] tracking-[-.03em] text-[#111318] dark:text-white; text-wrap: balance; }
-  .card { @apply rounded-[1.75rem] border border-black/10 bg-white/60 text-[#111318] dark:border-white/10 dark:bg-white/[.04] dark:text-white; }
+  .card { @apply rounded-[1.6rem] border border-black/10 bg-white/60 text-[#111318] dark:border-white/10 dark:bg-white/[.04] dark:text-white; }
+  .section-shell { @apply mx-auto w-[min(1180px,calc(100%-32px))] py-24 md:py-28; }
 }
 
 @layer utilities {

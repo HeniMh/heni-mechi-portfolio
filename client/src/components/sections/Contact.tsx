@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { portfolio } from '@/data/portfolio';
 import { Icon } from '@/components/ui/Icon';
+import { SectionHeader } from '@/components/ui/SectionHeader';
 import { sendContactMessage } from '@/utils/api';
 import { validateContactForm, hasFieldErrors, type ContactField, type FieldErrors } from '@/utils/contactValidation';
 
@@ -88,14 +89,15 @@ export function Contact() {
 
   return (
     <>
-      <section id="contact" className="mx-auto w-[min(760px,calc(100%-32px))] py-28">
-        <div data-reveal className="overflow-hidden rounded-[2.4rem] border border-black/10 bg-white/40 dark:border-white/10 dark:bg-white/[.03]">
+      <section id="contact" className="section-shell pt-0">
+        <SectionHeader
+          index="06"
+          label="Contact"
+          title="Tell me what you are building."
+          lead="Share the project, mission or opportunity — freelance or a senior full-stack role."
+        />
+        <div data-reveal className="card mx-auto mt-14 max-w-[760px] overflow-hidden">
         <form onSubmit={onSubmit} noValidate className="grid gap-4 p-6 md:p-10" aria-label="Contact form">
-          <div className="mb-2">
-            <span className="text-[11px] font-bold uppercase tracking-[.16em] text-black/70 dark:text-white/70">Send a message</span>
-            <h2 className="mt-3 font-display text-3xl font-bold leading-tight tracking-[-.03em] text-[#111318] dark:text-white">Tell me what you are building.</h2>
-            <p className="mt-2 text-sm font-medium text-black/70 dark:text-white/70">Share the project, mission or opportunity.</p>
-          </div>
 
           <label className="grid gap-2 text-xs font-bold uppercase tracking-[.08em] text-black/70 dark:text-white/70">
             Name
@@ -132,10 +134,10 @@ export function Contact() {
         </button>
       )}
 
-      {open && <div id="contact-panel" className="animate-[contactPanelIn_.25s_ease-out_both] overflow-hidden rounded-[2rem] border border-white/15 bg-[#111318]/95 text-white shadow-[0_24px_80px_rgba(0,0,0,.4)] backdrop-blur-2xl">
+      {open && <div id="contact-panel" className="animate-[contactPanelIn_.25s_ease-out_both] overflow-hidden rounded-[1.6rem] border border-white/15 bg-[#111318]/95 text-white shadow-[0_24px_80px_rgba(0,0,0,.4)] backdrop-blur-2xl">
         <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-[.18em] text-[#d9ff63]">05 / Contact</span>
+            <span className="text-[11px] font-bold uppercase tracking-[.18em] text-[#d9ff63]">06 / Contact</span>
             <p className="mt-1 text-sm font-bold">Let’s build something useful.</p>
           </div>
           <button type="button" onClick={() => setOpen(false)} className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-white/75 transition hover:bg-white/10 hover:text-white" aria-label="Close contact panel" aria-expanded="true" aria-controls="contact-panel"><Icon name="x" className="h-4 w-4" /></button>

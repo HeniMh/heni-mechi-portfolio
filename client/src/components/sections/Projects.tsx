@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { portfolio } from '@/data/portfolio';
 import { Icon } from '@/components/ui/Icon';
+import { SectionHeader } from '@/components/ui/SectionHeader';
 
 const startYear = (period: string) => period.split('–')[0].trim();
 
@@ -40,13 +41,15 @@ export function Projects() {
   };
 
   return (
-    <section id="work" className="bg-[#111318] py-28 text-white">
+    <section id="work" className="bg-[#111318] py-24 text-white md:py-28">
       <div className="mx-auto w-[min(1080px,calc(100%-32px))]">
-        <div data-reveal className="w-full text-center">
-          <span className="section-kicker !border-white/10 !bg-white/5 !text-white/70">02 / Career & selected work</span>
-          <h2 className="section-title mx-auto mt-5 !text-white">Seven years, seven production platforms.</h2>
-          <p className="mx-auto mt-5 w-full max-w-2xl text-base leading-7 text-white/70">From my first e-commerce mission in 2019 to full-stack delivery for Accor today. Open any step to see the project.</p>
-        </div>
+        <SectionHeader
+          onDark
+          index="02"
+          label="Career & selected work"
+          title="Seven years, seven production platforms."
+          lead="From my first e-commerce mission in 2019 to full-stack delivery for Accor today. Open any step to see the project."
+        />
 
         <ol ref={listRef} className="relative mt-16">
           {/* Track and scroll-driven fill */}
